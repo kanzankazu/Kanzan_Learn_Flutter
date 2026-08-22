@@ -1,0 +1,29 @@
+Dart is a modern, object-oriented language developed by Google for building fast applications.
+In Dart, every value is an object — even numbers and booleans are instances of their respective classes.
+Null safety in Dart means variables cannot be null unless explicitly declared with a question mark.
+A function in Dart is a first-class object, meaning you can pass a function as an argument to another function.
+Code readability matters: write code for humans first, and for machines second.
+The Dart compiler can compile to native ARM code for mobile apps or to JavaScript for the web.
+Streams in Dart represent a sequence of asynchronous data events — think of them like async iterables.
+Every Flutter widget is a Dart class, so mastering Dart is essential before diving into Flutter.
+Clean code is not written for the compiler — it is written for the next developer who reads it.
+Dart supports both JIT (Just-In-Time) compilation for fast development cycles and AOT (Ahead-Of-Time) for production.
+When you write a function, think about its single responsibility: one function should do one thing well.
+Generics in Dart allow you to write code that works with any data type while maintaining type safety.
+Isolates are Dart's way of achieving true parallelism — each isolate has its own memory heap.
+Don't repeat yourself (DRY) is a core principle: if you write the same code twice, extract it into a function.
+The async and await keywords make asynchronous Dart code look and behave like synchronous code.
+Dart's type inference means you often don't need to write types explicitly — the compiler figures it out.
+Extension methods let you add new functionality to existing Dart classes without subclassing them.
+Good code is self-documenting, but a well-placed comment explaining *why* is worth more than one explaining *what*.
+Sealed classes in Dart 3 allow exhaustive pattern matching — the compiler warns you if a case is missing.
+Mixins are a powerful Dart feature for sharing code between classes that don't share a common ancestor.
+Records in Dart 3 provide a lightweight, immutable data structure for bundling multiple values together.
+Writing tests is not extra work — it is insurance that your code does what you think it does.
+The Dart SDK ships with a rich standard library covering collections, async, I/O, math, and more.
+Pattern matching in Dart 3 combines type checking and destructuring into a single, expressive syntax.
+Every Dart program starts with a main function — it is the entry point that the runtime calls first.
+Dart's Future class represents a value that will be available at some point in the future, like a promise.
+Code that is easy to delete is often better designed than code that is hard to change.
+Learning Dart well means understanding not just the syntax, but the idioms that experienced developers use.
+The spread operator in Dart (...) makes it easy to combine lists without verbose loops or utility methods.

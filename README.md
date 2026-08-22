@@ -289,3 +289,55 @@ dart run lib/phase0/07_error_handling/error_handling_demo.dart
 | 🧮 Kalkulator CLI | `dart run lib/phase0/mini_projects/calculator/calculator.dart` |
 | 📝 To-Do List CLI | `dart run lib/phase0/mini_projects/todo/todo_app.dart` |
 | 🎯 Tebak Angka | `dart run lib/phase0/mini_projects/guess_number/guess_number.dart` |
+
+---
+
+## 🔵 Phase 1 — Dart Language
+
+> Branch: `phase/1-dart-language`  
+> Status: ✅ Selesai
+
+### Topik yang Dipelajari
+
+| No | Topik | File |
+|---|---|---|
+| 1 | Null Safety | `lib/phase1/01_null_safety/null_safety_demo.dart` |
+| 2 | Async/Await & Future | `lib/phase1/02_async_future/async_future_demo.dart` |
+| 3 | Stream | `lib/phase1/03_stream/stream_demo.dart` |
+| 4 | Collections Advanced | `lib/phase1/04_collections_advanced/collections_advanced_demo.dart` |
+| 5 | Extension Methods | `lib/phase1/05_extensions/extensions_demo.dart` |
+| 6 | Enum Enhanced (Dart 3) | `lib/phase1/06_enum_enhanced/enum_enhanced_demo.dart` |
+| 7 | Pattern Matching & Sealed Class | `lib/phase1/07_pattern_matching/pattern_matching_demo.dart` |
+| 8 | Generics | `lib/phase1/08_generics/generics_demo.dart` |
+| 9 | Mixins | `lib/phase1/09_mixins/mixins_demo.dart` |
+| 10 | Records & Destructuring | `lib/phase1/10_records/records_demo.dart` |
+| 11 | Isolates (Intro) | `lib/phase1/11_isolates/isolates_demo.dart` |
+
+### Cara Menjalankan Demo
+
+```bash
+# Entry point (menu pilih demo)
+dart run lib/phase1/main_phase1.dart
+
+# Atau langsung jalankan file demo tertentu:
+dart run lib/phase1/01_null_safety/null_safety_demo.dart
+dart run lib/phase1/02_async_future/async_future_demo.dart
+dart run lib/phase1/03_stream/stream_demo.dart
+dart run lib/phase1/04_collections_advanced/collections_advanced_demo.dart
+dart run lib/phase1/05_extensions/extensions_demo.dart
+dart run lib/phase1/06_enum_enhanced/enum_enhanced_demo.dart
+dart run lib/phase1/07_pattern_matching/pattern_matching_demo.dart
+dart run lib/phase1/08_generics/generics_demo.dart
+dart run lib/phase1/09_mixins/mixins_demo.dart
+dart run lib/phase1/10_records/records_demo.dart
+dart run lib/phase1/11_isolates/isolates_demo.dart
+```
+
+### Mini Projects
+
+| Project | Cara Jalankan |
+|---|---|
+| 🌤️ Weather CLI App | `OPENWEATHER_API_KEY=your_key dart run lib/phase1/mini_projects/weather/weather_app.dart Jakarta` |
+| 📄 File Processor CLI | `dart run lib/phase1/mini_projects/file_processor/file_processor.dart stats lib/phase1/mini_projects/file_processor/sample.txt` |
+
+> **Catatan Weather App:** Dapatkan API key gratis di [openweathermap.org](https://openweathermap.org/api). Set env var `OPENWEATHER_API_KEY` sebelum menjalankan. Tanpa API key, app akan mencetak instruksi setup dan exit.
