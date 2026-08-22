@@ -246,3 +246,46 @@ All contributions go toward maintaining and expanding this learning repo.
 *Happy learning & keep building!* 🚀
 
 </div>
+
+---
+
+## 🟢 Phase 0 — Fondasi Pemrograman
+
+> Branch: `phase/0-fondasi-pemrograman`  
+> Status: ✅ Selesai
+
+### Topik yang Dipelajari
+
+| No | Topik | File |
+|---|---|---|
+| 1 | Variabel & Tipe Data | `lib/phase0/01_variables/variables_demo.dart` |
+| 2 | Operator | `lib/phase0/02_operators/operators_demo.dart` |
+| 3 | Control Flow | `lib/phase0/03_control_flow/control_flow_demo.dart` |
+| 4 | Function | `lib/phase0/04_functions/functions_demo.dart` |
+| 5 | Collections (List, Map, Set) | `lib/phase0/05_collections/collections_demo.dart` |
+| 6 | OOP (Object-Oriented Programming) | `lib/phase0/06_oop/oop_demo.dart` |
+| 7 | Error Handling | `lib/phase0/07_error_handling/error_handling_demo.dart` |
+
+### Cara Menjalankan Demo
+
+```bash
+# Entry point (menu pilih demo)
+dart run lib/phase0/main_phase0.dart
+
+# Atau langsung jalankan file demo tertentu:
+dart run lib/phase0/01_variables/variables_demo.dart
+dart run lib/phase0/02_operators/operators_demo.dart
+dart run lib/phase0/03_control_flow/control_flow_demo.dart
+dart run lib/phase0/04_functions/functions_demo.dart
+dart run lib/phase0/05_collections/collections_demo.dart
+dart run lib/phase0/06_oop/oop_demo.dart
+dart run lib/phase0/07_error_handling/error_handling_demo.dart
+```
+
+### Mini Projects
+
+| Project | Cara Jalankan |
+|---|---|
+| 🧮 Kalkulator CLI | `dart run lib/phase0/mini_projects/calculator/calculator.dart` |
+| 📝 To-Do List CLI | `dart run lib/phase0/mini_projects/todo/todo_app.dart` |
+| 🎯 Tebak Angka | `dart run lib/phase0/mini_projects/guess_number/guess_number.dart` |
