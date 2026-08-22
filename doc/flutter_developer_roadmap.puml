@@ -1,0 +1,126 @@
+@startuml flutter_developer_roadmap
+' !theme plain
+title Flutter Developer Roadmap - Zero to Hero
+caption Last Updated: August 15, 2026
+
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam roundCorner 10
+skinparam shadowing false
+
+' Colors
+skinparam rectangle {
+    BackgroundColor<<phase0>> #E8F5E9
+    BackgroundColor<<phase1>> #E8F5E9
+    BackgroundColor<<phase2>> #E8F5E9
+    BackgroundColor<<phase3>> #E3F2FD
+    BackgroundColor<<phase4>> #E3F2FD
+    BackgroundColor<<phase5>> #E3F2FD
+    BackgroundColor<<phase6>> #FFF3E0
+    BackgroundColor<<phase7>> #FFF3E0
+    BackgroundColor<<phase8>> #FFF3E0
+    BackgroundColor<<phase9>> #F3E5F5
+    BackgroundColor<<phase10>> #F3E5F5
+    BackgroundColor<<milestone>> #C8E6C9
+    BackgroundColor<<specialization>> #FFEBEE
+}
+
+' ===== HEADER =====
+rectangle "[START HERE]\n\nWhat's your starting level?" as start #E8EAF6
+
+' ===== PHASE 0 =====
+rectangle "<b>Phase 0: Programming Foundations</b>\n(2-3 weeks)\n\n* Variables & Data Types\n* Control Flow (if/for/while)\n* Functions & OOP\n* Collections (List, Map, Set)\n* Error Handling\n* Mini Project: Calculator CLI, Todo CLI" as phase0 <<phase0>>
+
+' ===== PHASE 1 =====
+rectangle "<b>Phase 1: Dart Language</b>\n(1-2 weeks)\n\n* Null Safety (?, !, ??, late)\n* Async/Await & Future\n* Stream\n* Collections (.map, .where, .fold)\n* Extension Methods\n* Pattern Matching (Dart 3)\n* Generics & Mixins\n* Records & Destructuring\n* Isolates (intro)" as phase1 <<phase1>>
+
+' ===== PHASE 2 =====
+rectangle "<b>Phase 2: Flutter Fundamentals</b>\n(3-4 weeks)\n\n* StatelessWidget & StatefulWidget\n* Column, Row, Stack, Expanded\n* ListView, GridView, ScrollView\n* TextField, Form, Buttons\n* Scaffold, AppBar, Drawer\n* Dialog, SnackBar, BottomSheet\n* Custom Widget, Theming\n* Responsive Layout\n* Basic Animation (Hero, AnimatedContainer)\n* Project: Quiz App, Profile Card, Calculator" as phase2 <<phase2>>
+
+' ===== MILESTONE 1 =====
+rectangle "[MILESTONE]\nCan build Flutter UI\n(Beginner Level)" as m1 <<milestone>>
+
+' ===== PHASE 3 =====
+rectangle "<b>Phase 3: State Management & Navigation</b>\n(2-3 weeks)\n\n* Named Routes / GoRouter\n* Passing Data & Return Result\n* Bottom Navigation (nested)\n* Deep Linking\n* setState (local state)\n* InheritedWidget (concept)\n* Riverpod [RECOMMENDED]\n* BLoC/Cubit (enterprise)\n* Provider (legacy)\n* Project: Todo App, Habit Tracker" as phase3 <<phase3>>
+
+' ===== PHASE 4 =====
+rectangle "<b>Phase 4: Networking & Data</b>\n(2-3 weeks)\n\n* HTTP/Dio (REST API)\n* JSON Serialization (freezed)\n* Error Handling (loading/success/error)\n* Local Storage (Hive, Isar, sqflite)\n* Image Caching\n* Firebase Integration\n* Pagination & Infinite Scroll\n* Offline-first (intro)\n* Project: Weather App, News Reader" as phase4 <<phase4>>
+
+' ===== PHASE 5 =====
+rectangle "<b>Phase 5: Architecture & Clean Code</b>\n(2-3 weeks)\n\n* Feature-first folder structure\n* Repository Pattern\n* Clean Architecture (data/domain/presentation)\n* SOLID Principles\n* Dependency Injection\n* Use Cases\n* Error Handling (Either/Result)\n* Code Generation (freezed, json_serializable)\n* Project: Refactor with Clean Architecture" as phase5 <<phase5>>
+
+' ===== MILESTONE 2 =====
+rectangle "[MILESTONE]\nIntermediate Flutter Dev\n(State + Network + Architecture)" as m2 <<milestone>>
+
+' ===== PHASE 6 =====
+rectangle "<b>Phase 6: Advanced Flutter</b>\n(3-4 weeks)\n\n* Custom Painter\n* Slivers (CustomScrollView)\n* Advanced Animation (Rive, Lottie)\n* Platform Channels\n* Responsive & Adaptive UI\n* Accessibility & i18n\n* Push Notification (FCM)\n* Background Tasks (WorkManager)\n* Camera & Media\n* Maps & Location\n* Project: E-Commerce, Finance Manager" as phase6 <<phase6>>
+
+' ===== PHASE 7 =====
+rectangle "<b>Phase 7: Testing</b>\n(2 weeks)\n\n* Unit Test (logic, ViewModel)\n* Widget Test (UI behavior)\n* Integration Test (full flow)\n* Mocking (mockito, mocktail)\n* Golden Test (screenshot)\n* Code Coverage (70%+ target)" as phase7 <<phase7>>
+
+' ===== PHASE 8 =====
+rectangle "<b>Phase 8: Deployment & DevOps</b>\n(1-2 weeks)\n\n* Build Variants & Flavors\n* App Signing (Keystore/Certificate)\n* Play Store & App Store\n* CI/CD (GitHub Actions, Codemagic)\n* Code Push (Shorebird)\n* Monitoring (Crashlytics, Analytics)" as phase8 <<phase8>>
+
+' ===== MILESTONE 3 =====
+rectangle "[MILESTONE]\nProduction-ready Flutter Dev\n(Advanced + Tested + Published)" as m3 <<milestone>>
+
+' ===== PHASE 9 =====
+rectangle "<b>Phase 9: Portfolio & Job Ready</b>\n(ongoing)\n\n* 2-3 Production Apps (published)\n* Clean Code + Architecture\n* API Integration (not hardcoded)\n* Testing (unit + widget)\n* Polished UI\n* Clean git history\n* Clear README on GitHub\n* Project: Banking App, Ride-hailing, POS" as phase9 <<phase9>>
+
+' ===== PHASE 10 =====
+rectangle "<b>Phase 10: Specialization</b>\n(ongoing)\n\nChoose your track:" as phase10 <<phase10>>
+
+' ===== SPECIALIZATIONS =====
+rectangle "Web & Desktop\n\n* Responsive Web, PWA\n* Desktop UI\n* URL routing, SEO\n* Dart Frog / Serverpod" as spec1 <<specialization>>
+
+rectangle "Advanced State\n\n* Riverpod Generator\n* Offline-first + CRDT\n* State Restoration\n* Event Sourcing" as spec2 <<specialization>>
+
+rectangle "Native Interop\n\n* Method/Event Channel\n* Pigeon (type-safe)\n* Dart FFI (C/Rust)\n* Federated Plugin" as spec3 <<specialization>>
+
+rectangle "Performance\n\n* DevTools Mastery\n* Custom RenderObject\n* Shader & GPU\n* Isolate & Compute" as spec4 <<specialization>>
+
+rectangle "AI/ML Mobile\n\n* TensorFlow Lite\n* Google ML Kit\n* On-device LLM\n* Camera + ML Pipeline" as spec5 <<specialization>>
+
+' ===== CONNECTIONS =====
+start -down-> phase0 : "No coding\nexperience"
+start -down-> phase1 : "Know\nPython/JS/Java"
+start -down-> phase3 : "Already know\nFlutter"
+
+phase0 -down-> phase1
+phase1 -down-> phase2
+phase2 -down-> m1
+m1 -down-> phase3
+phase3 -down-> phase4
+phase4 -down-> phase5
+phase5 -down-> m2
+m2 -down-> phase6
+phase6 -down-> phase7
+phase7 -down-> phase8
+phase8 -down-> m3
+m3 -down-> phase9
+phase9 -down-> phase10
+
+phase10 -down-> spec1
+phase10 -down-> spec2
+phase10 -down-> spec3
+phase10 -down-> spec4
+phase10 -down-> spec5
+
+' ===== LEGEND =====
+legend right
+  |= Color |= Level |
+  | <#E8F5E9> | Beginner (Phase 0-2) |
+  | <#E3F2FD> | Intermediate (Phase 3-5) |
+  | <#FFF3E0> | Advanced (Phase 6-8) |
+  | <#F3E5F5> | Expert (Phase 9-10) |
+  | <#FFEBEE> | Specialization Track |
+  | <#C8E6C9> | Milestone |
+
+  <b>Total Estimate:</b>
+  Absolute beginner: ~6 months (Phase 0-9)
+  Backend dev: ~3.5 months (Phase 1-9)
+  Full mastery (Phase 10): ongoing
+endlegend
+
+@enduml
