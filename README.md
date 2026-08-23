@@ -89,7 +89,18 @@ lib/
 │   │   └── recipe_app/
 │   └── main_phase2.dart    ← entry point Phase 2
 │
-├── phase3/          ← (Coming soon) State management & navigation
+├── phase3/          ← State management (Riverpod) & navigation (GoRouter)
+│   ├── 01_go_router_basics/
+│   ├── 02_passing_data/
+│   ├── 03_bottom_nav/
+│   ├── 04_deep_linking/
+│   ├── 05_riverpod/
+│   ├── 06_local_vs_global/
+│   ├── mini_projects/
+│   │   ├── todo_app/
+│   │   └── shopping_cart/
+│   └── main_phase3.dart    ← entry point Phase 3
+│
 ├── phase4/          ← (Coming soon) Networking & data
 ├── phase5/          ← (Coming soon) Clean architecture
 └── main.dart        ← Default Flutter entry point
@@ -118,7 +129,7 @@ lib/
        ✅ MILESTONE 1: Can clone any app UI
                │
                ▼
-         Phase 3: State & Navigation   lib/phase3/  🚧
+         Phase 3: State & Navigation   lib/phase3/  ✅
          Phase 4: Networking & Data    lib/phase4/  🚧
          Phase 5: Architecture         lib/phase5/  🚧
                │
@@ -158,7 +169,7 @@ lib/
 
 | Folder | Topics | Status |
 |---|---|---|
-| `lib/phase3/` | Riverpod, GoRouter, Navigation, Deep Links | 🚧 Coming Soon |
+| `lib/phase3/` | Riverpod, GoRouter, Navigation, Deep Links | ✅ Ready |
 | `lib/phase4/` | Dio, freezed, Hive/Isar, Firebase | 🚧 Coming Soon |
 | `lib/phase5/` | Clean Architecture, Repository Pattern, SOLID | 🚧 Coming Soon |
 
@@ -264,24 +275,24 @@ This repo uses the [MIT](LICENSE) license — free to use for learning and perso
 
 ---
 
-## 🟢 Phase 0 — Fondasi Pemrograman
+## 🟢 Phase 0 — Programming Fundamentals
 
 > Folder: `lib/phase0/`
-> Status: ✅ Selesai
+> Status: ✅ Done
 
-### Topik yang Dipelajari
+### Topics Covered
 
-| No | Topik | File |
+| No | Topic | File |
 |---|---|---|
-| 1 | Variabel & Tipe Data | `lib/phase0/01_variables/variables_demo.dart` |
-| 2 | Operator | `lib/phase0/02_operators/operators_demo.dart` |
+| 1 | Variables & Data Types | `lib/phase0/01_variables/variables_demo.dart` |
+| 2 | Operators | `lib/phase0/02_operators/operators_demo.dart` |
 | 3 | Control Flow | `lib/phase0/03_control_flow/control_flow_demo.dart` |
-| 4 | Function | `lib/phase0/04_functions/functions_demo.dart` |
+| 4 | Functions | `lib/phase0/04_functions/functions_demo.dart` |
 | 5 | Collections (List, Map, Set) | `lib/phase0/05_collections/collections_demo.dart` |
 | 6 | OOP (Object-Oriented Programming) | `lib/phase0/06_oop/oop_demo.dart` |
 | 7 | Error Handling | `lib/phase0/07_error_handling/error_handling_demo.dart` |
 
-### Cara Menjalankan
+### How to Run
 
 ```bash
 dart run lib/phase0/main_phase0.dart
@@ -289,36 +300,36 @@ dart run lib/phase0/main_phase0.dart
 
 ### Mini Projects
 
-| Project | Cara Jalankan |
+| Project | How to Run |
 |---|---|
-| 🧮 Kalkulator CLI | `dart run lib/phase0/mini_projects/calculator/calculator.dart` |
+| 🧮 Calculator CLI | `dart run lib/phase0/mini_projects/calculator/calculator.dart` |
 | 📝 To-Do List CLI | `dart run lib/phase0/mini_projects/todo/todo_app.dart` |
-| 🎯 Tebak Angka | `dart run lib/phase0/mini_projects/guess_number/guess_number.dart` |
+| 🎯 Guess the Number | `dart run lib/phase0/mini_projects/guess_number/guess_number.dart` |
 
 ---
 
 ## 🔵 Phase 1 — Dart Language
 
 > Folder: `lib/phase1/`
-> Status: ✅ Selesai
+> Status: ✅ Done
 
-### Topik yang Dipelajari
+### Topics Covered
 
-| No | Topik | File |
+| No | Topic | File |
 |---|---|---|
 | 1 | Null Safety | `lib/phase1/01_null_safety/null_safety_demo.dart` |
 | 2 | Async/Await & Future | `lib/phase1/02_async_future/async_future_demo.dart` |
 | 3 | Stream | `lib/phase1/03_stream/stream_demo.dart` |
-| 4 | Collections Advanced | `lib/phase1/04_collections_advanced/collections_advanced_demo.dart` |
+| 4 | Advanced Collections | `lib/phase1/04_collections_advanced/collections_advanced_demo.dart` |
 | 5 | Extension Methods | `lib/phase1/05_extensions/extensions_demo.dart` |
-| 6 | Enum Enhanced (Dart 3) | `lib/phase1/06_enum_enhanced/enum_enhanced_demo.dart` |
-| 7 | Pattern Matching & Sealed Class | `lib/phase1/07_pattern_matching/pattern_matching_demo.dart` |
+| 6 | Enhanced Enums (Dart 3) | `lib/phase1/06_enum_enhanced/enum_enhanced_demo.dart` |
+| 7 | Pattern Matching & Sealed Classes | `lib/phase1/07_pattern_matching/pattern_matching_demo.dart` |
 | 8 | Generics | `lib/phase1/08_generics/generics_demo.dart` |
 | 9 | Mixins | `lib/phase1/09_mixins/mixins_demo.dart` |
 | 10 | Records & Destructuring | `lib/phase1/10_records/records_demo.dart` |
 | 11 | Isolates (Intro) | `lib/phase1/11_isolates/isolates_demo.dart` |
 
-### Cara Menjalankan
+### How to Run
 
 ```bash
 dart run lib/phase1/main_phase1.dart
@@ -326,27 +337,27 @@ dart run lib/phase1/main_phase1.dart
 
 ### Mini Projects
 
-| Project | Cara Jalankan |
+| Project | How to Run |
 |---|---|
 | 🌤️ Weather CLI App | `OPENWEATHER_API_KEY=your_key dart run lib/phase1/mini_projects/weather/weather_app.dart Jakarta` |
 | 📄 File Processor CLI | `dart run lib/phase1/mini_projects/file_processor/file_processor.dart stats lib/phase1/mini_projects/file_processor/sample.txt` |
 
-> **Catatan Weather App:** Dapatkan API key gratis di [openweathermap.org](https://openweathermap.org/api).
+> **Weather App note:** Get a free API key at [openweathermap.org](https://openweathermap.org/api).
 
 ---
 
 ## 🟡 Phase 2 — Flutter Fundamentals
 
 > Folder: `lib/phase2/`
-> Status: 🟡 Sedang Berjalan
+> Status: 🟡 In Progress (11/12 topics done)
 
-### Cara Menjalankan
+### How to Run
 
 ```bash
-# Menu utama (semua topik)
+# Main menu (all topics)
 flutter run -t lib/phase2/main_phase2.dart
 
-# Atau jalankan topik tertentu langsung
+# Or run a specific topic directly
 flutter run -t lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart
 flutter run -t lib/phase2/02_layout_widgets/layout_demo.dart
 flutter run -t lib/phase2/03_container_decoration/container_demo.dart
@@ -358,30 +369,88 @@ flutter run -t lib/phase2/08_custom_widget/custom_widget_demo.dart
 flutter run -t lib/phase2/09_theming/theming_demo.dart
 flutter run -t lib/phase2/10_responsive_layout/responsive_demo.dart
 flutter run -t lib/phase2/11_animation/animation_demo.dart
+flutter run -t lib/phase2/12_gesture_lifecycle/gesture_lifecycle_demo.dart
 ```
 
-### Topik yang Dipelajari
+### Topics Covered
 
-| No | Topik | File |
-|---|---|---|
-| 01 | StatelessWidget & StatefulWidget | `lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart` |
-| 02 | Layout Widgets (Column, Row, Stack, Expanded) | `lib/phase2/02_layout_widgets/layout_demo.dart` |
-| 03 | Container & BoxDecoration | `lib/phase2/03_container_decoration/container_demo.dart` |
-| 04 | Scrollable (ListView, GridView, SingleChildScrollView) | `lib/phase2/04_scrollable/scrollable_demo.dart` |
-| 05 | Input Widgets (TextField, Form, validasi) | `lib/phase2/05_input_widgets/input_demo.dart` |
-| 06 | Button Widgets & AppBar/Scaffold | `lib/phase2/06_buttons_scaffold/buttons_demo.dart` |
-| 07 | Image, Icon, Dialog & SnackBar | `lib/phase2/07_image_icon_dialog_snackbar/media_dialog_demo.dart` |
-| 08 | Custom Widget (extract & composition) | `lib/phase2/08_custom_widget/custom_widget_demo.dart` |
-| 09 | Theming (ThemeData, ColorScheme, dark mode) | `lib/phase2/09_theming/theming_demo.dart` |
-| 10 | Responsive Layout (MediaQuery, LayoutBuilder) | `lib/phase2/10_responsive_layout/responsive_demo.dart` |
-| 11 | Animasi Dasar (AnimatedContainer, Hero, AnimatedSwitcher) | `lib/phase2/11_animation/animation_demo.dart` |
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | StatelessWidget & StatefulWidget | `lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart` | ✅ |
+| 02 | Layout Widgets (Column, Row, Stack, Expanded) | `lib/phase2/02_layout_widgets/layout_demo.dart` | ✅ |
+| 03 | Container & BoxDecoration | `lib/phase2/03_container_decoration/container_demo.dart` | ✅ |
+| 04 | Scrollable (ListView, GridView, SingleChildScrollView) | `lib/phase2/04_scrollable/scrollable_demo.dart` | ✅ |
+| 05 | Input Widgets (TextField, Form, validation) | `lib/phase2/05_input_widgets/input_demo.dart` | ✅ |
+| 06 | Button Widgets & AppBar/Scaffold | `lib/phase2/06_buttons_scaffold/buttons_demo.dart` | ✅ |
+| 07 | Image, Icon, Dialog & SnackBar | `lib/phase2/07_image_icon_dialog_snackbar/media_dialog_demo.dart` | ✅ |
+| 08 | Custom Widget (extract & composition) | `lib/phase2/08_custom_widget/custom_widget_demo.dart` | ✅ |
+| 09 | Theming (ThemeData, ColorScheme, dark mode) | `lib/phase2/09_theming/theming_demo.dart` | ✅ |
+| 10 | Responsive Layout (MediaQuery, LayoutBuilder) | `lib/phase2/10_responsive_layout/responsive_demo.dart` | ✅ |
+| 11 | Basic Animation (AnimatedContainer, Hero, AnimatedSwitcher) | `lib/phase2/11_animation/animation_demo.dart` | ✅ |
+| 12 | GestureDetector & Widget Lifecycle | `lib/phase2/12_gesture_lifecycle/gesture_lifecycle_demo.dart` | 🚧 |
 
 ### Mini Projects
 
-| Project | Cara Jalankan |
-|---|---|
-| 👤 Profile Card App | `flutter run -t lib/phase2/mini_projects/profile_card/profile_card_app.dart` |
-| 🧮 Calculator App | `flutter run -t lib/phase2/mini_projects/calculator/calculator_app.dart` |
-| 🍳 Recipe App | `flutter run -t lib/phase2/mini_projects/recipe_app/recipe_app.dart` |
+| Project | How to Run | Status |
+|---|---|---|
+| 👤 Profile Card App | `flutter run -t lib/phase2/mini_projects/profile_card/profile_card_app.dart` | ✅ |
+| 🧮 Calculator App | `flutter run -t lib/phase2/mini_projects/calculator/calculator_app.dart` | ✅ |
+| 🍳 Recipe App | `flutter run -t lib/phase2/mini_projects/recipe_app/recipe_app.dart` | ✅ |
 
-**🏆 Milestone 1:** Bisa clone UI app terkenal (Grab/Tokopedia)
+**🏆 Milestone 1:** Can clone a well-known app UI (Grab/Tokopedia)
+
+---
+
+## 🔵 Phase 3 — State Management & Navigation
+
+> Folder: `lib/phase3/`
+> Status: ✅ Done
+
+### How to Run
+
+```bash
+# Main menu (all topics)
+flutter run -t lib/phase3/main_phase3.dart
+
+# Or run a specific topic directly
+flutter run -t lib/phase3/01_go_router_basics/go_router_basics_demo.dart
+flutter run -t lib/phase3/02_passing_data/passing_data_demo.dart
+flutter run -t lib/phase3/03_bottom_nav/bottom_nav_demo.dart
+flutter run -t lib/phase3/04_deep_linking/deep_linking_demo.dart
+flutter run -t lib/phase3/05_riverpod/riverpod_demo.dart
+flutter run -t lib/phase3/06_local_vs_global/local_vs_global_demo.dart
+flutter run -t lib/phase3/07_bloc/bloc_demo.dart
+
+# Mini projects
+flutter run -t lib/phase3/mini_projects/todo_app/todo_app.dart
+flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Named Routes & GoRouter Basics | `lib/phase3/01_go_router_basics/go_router_basics_demo.dart` | ✅ |
+| 02 | Passing Data Between Screens (path param, query param, extra) | `lib/phase3/02_passing_data/passing_data_demo.dart` | ✅ |
+| 03 | Bottom Navigation + Nested Navigator (`StatefulShellRoute`) | `lib/phase3/03_bottom_nav/bottom_nav_demo.dart` | ✅ |
+| 04 | Deep Linking + Auth Redirect (`refreshListenable`) | `lib/phase3/04_deep_linking/deep_linking_demo.dart` | ✅ |
+| 05 | Riverpod — Provider, StateNotifier, FutureProvider, StreamProvider | `lib/phase3/05_riverpod/riverpod_demo.dart` | ✅ |
+| 06 | Local State vs Global State — when to use which | `lib/phase3/06_local_vs_global/local_vs_global_demo.dart` | ✅ |
+| 07 | BLoC — Cubit, Bloc, BlocBuilder, BlocListener, BlocConsumer | `lib/phase3/07_bloc/bloc_demo.dart` | ✅ |
+
+### Packages Used
+
+| Package | Version | Purpose |
+|---|---|---|
+| `flutter_riverpod` | ^2.5.1 | State management (Riverpod) |
+| `go_router` | ^17.5.0 | Declarative navigation |
+| `flutter_bloc` | ^9.1.1 | State management (BLoC) |
+
+### Mini Projects
+
+| Project | How to Run | What it Practices |
+|---|---|---|
+| ✅ Multi-screen Todo App | `flutter run -t lib/phase3/mini_projects/todo_app/todo_app.dart` | GoRouter + Riverpod StateNotifier + filter + form validation |
+| 🛍️ Shopping Cart App | `flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart` | FutureProvider + derived providers + multi-screen flow |
+
+**🏆 Milestone 2:** Can build a CRUD app + API + proper state management

@@ -37,6 +37,9 @@ dependencies:
 
   # HTTP client for Weather CLI mini project (Phase 1, Requirement 12)
   http: ^1.2.0
+  flutter_riverpod: ^2.5.1
+  go_router: ^17.5.0
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
