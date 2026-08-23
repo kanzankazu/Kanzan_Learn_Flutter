@@ -201,7 +201,11 @@ class _RiverpodMenuScreen extends ConsumerWidget {
 // Section widgets
 // ─────────────────────────────────────────────────────────────────────────────
 
-/// Provider demo — read-only value.
+/// Demonstrates a simple [Provider] — a read-only value that never changes.
+///
+/// Key point: `ref.watch(greetingProvider)` returns the String directly.
+/// No loading state, no error state — just the value. Use [Provider] for
+/// constants, configuration, and service instances.
 class _ProviderSection extends ConsumerWidget {
   const _ProviderSection();
 
@@ -213,7 +217,15 @@ class _ProviderSection extends ConsumerWidget {
   }
 }
 
-/// StateProvider demo — counter and toggle.
+/// Demonstrates [StateProvider] for simple primitive state (int, bool, String).
+///
+/// Rule of thumb:
+/// - Use [StateProvider] when your state is a single primitive value
+/// - Use [StateNotifierProvider] when your state is a class/list with logic
+///
+/// Notice how `ref.read()` is used in the button handlers (not `ref.watch()`).
+/// This is intentional: event handlers should not subscribe to providers.
+/// Subscribing in an event handler causes unnecessary rebuilds.
 class _StateProviderSection extends ConsumerWidget {
   const _StateProviderSection();
 
@@ -250,7 +262,16 @@ class _StateProviderSection extends ConsumerWidget {
   }
 }
 
-/// StateNotifier demo — todo list.
+/// Demonstrates [StateNotifier] with a todo list — complex state with logic.
+///
+/// Key differences from [StateProvider]:
+/// 1. Logic lives in [TodoNotifier], NOT in the widget — easier to test and reuse
+/// 2. State is a List, not a primitive
+/// 3. Mutations are methods (add, toggle, remove), not direct `.state =` assignments
+///
+/// 💡 Tip: Always dispose [TextEditingController] in `dispose()`.
+/// If you forget, the controller keeps listening to its text field even after
+/// the widget is removed from the tree — this is a memory leak.
 class _StateNotifierSection extends ConsumerStatefulWidget {
   const _StateNotifierSection();
 
@@ -263,8 +284,10 @@ class _StateNotifierSectionState extends ConsumerState<_StateNotifierSection> {
 
   @override
   void dispose() {
+    // Always dispose controllers to prevent memory leaks.
+    // Rule: anything with a dispose() method must be disposed here.
     _controller.dispose();
-    super.dispose();
+    super.dispose(); // super.dispose() must be called LAST
   }
 
   @override
@@ -340,7 +363,16 @@ class _StateNotifierSectionState extends ConsumerState<_StateNotifierSection> {
   }
 }
 
-/// FutureProvider demo — loading/data/error state.
+/// Demonstrates [FutureProvider] for one-off async operations.
+///
+/// [FutureProvider] wraps a Future and gives you an [AsyncValue<T>] which
+/// has three states:
+/// - `AsyncValue.loading()` → future is still running
+/// - `AsyncValue.data(value)` → future completed with a value
+/// - `AsyncValue.error(err, st)` → future threw an exception
+///
+/// `.when()` handles all three cases in one call — cleaner than if/else chains.
+/// `ref.refresh(provider)` re-runs the Future from scratch.
 class _FutureProviderSection extends ConsumerWidget {
   const _FutureProviderSection();
 
@@ -374,7 +406,19 @@ class _FutureProviderSection extends ConsumerWidget {
   }
 }
 
-/// StreamProvider demo — real-time ticker.
+/// Demonstrates [StreamProvider] for real-time / continuous data.
+///
+/// [StreamProvider] is like [FutureProvider] but for Streams.
+/// Every time the stream emits a new value, all watchers rebuild automatically.
+///
+/// Real-world use cases:
+/// - Firestore document/collection listener (live data updates)
+/// - WebSocket messages
+/// - Device sensors (GPS location, accelerometer)
+/// - Timer ticks
+///
+/// 💡 Tip: Riverpod automatically cancels the stream subscription when
+/// the provider is no longer watched. No manual StreamSubscription.cancel() needed.
 class _StreamProviderSection extends ConsumerWidget {
   const _StreamProviderSection();
 

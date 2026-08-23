@@ -1,27 +1,49 @@
-/// # Phase 2 — Topik 9: Theming (ThemeData, ColorScheme, Dark Mode)
+/// # Phase 2 — Topic 9: Theming (ThemeData, ColorScheme, Dark Mode)
 ///
-/// Flutter menggunakan sistem theming terpusat lewat [ThemeData].
-/// Semua widget Material secara otomatis mengikuti theme — tidak perlu
-/// set warna manual di setiap widget.
+/// Flutter uses a centralized theming system via [ThemeData].
+/// All Material widgets automatically follow the theme — no need to
+/// set colors manually on every single widget.
+///
+/// **Why centralized theming?**
+/// Imagine changing your app's primary color. Without theming you'd need
+/// to update hundreds of `color: Colors.blue` lines. With theming, you
+/// change one line in ThemeData and every widget updates automatically.
 ///
 /// **Material Design 3 (M3):**
-/// Sistem design Google terbaru. Flutter support penuh lewat `useMaterial3: true`.
-/// ColorScheme M3 punya banyak token warna (primary, secondary, tertiary, error, dll).
+/// Google's latest design system. Flutter has full support via `useMaterial3: true`.
+/// M3 ColorScheme has many color tokens: primary, secondary, tertiary, error, surface, etc.
+/// Each token also has an "on-" counterpart (onPrimary, onSurface) that guarantees
+/// readable contrast — you never have to calculate contrast ratios manually.
 ///
 /// **Dark Mode:**
-/// Flutter punya support dark mode bawaan lewat `themeMode` di MaterialApp.
-/// Buat dua [ThemeData] — `theme` (light) dan `darkTheme` (dark).
+/// Flutter has built-in dark mode support via `themeMode` in MaterialApp.
+/// Create two [ThemeData] objects — `theme` (light) and `darkTheme` (dark).
+/// The OS tells Flutter which to use when `ThemeMode.system` is set.
 ///
-/// Jalankan: `flutter run -t lib/phase2/09_theming/theming_demo.dart`
+/// **Key classes:**
+/// - [ThemeData] → the full theme configuration
+/// - [ColorScheme] → all the color tokens (generated from a seed color)
+/// - [TextTheme] → typography scale (displayLarge, bodyMedium, etc.)
+///
+/// How to run: `flutter run -t lib/phase2/09_theming/theming_demo.dart`
 
 import 'package:flutter/material.dart';
 
 void main() => runApp(const ThemingDemoApp());
 
 // ===========================================================================
-// ROOT APP dengan THEMING
+// ROOT APP WITH THEMING
 // ===========================================================================
 
+/// Root widget that owns the [ThemeData] and [ThemeMode] state.
+///
+/// This is the recommended pattern: keep theme state at the top of the widget
+/// tree so any descendant can change the theme (e.g. a settings screen deep
+/// inside the app).
+///
+/// The key insight: [MaterialApp] is the bridge between our [ThemeData] and
+/// all the Material widgets below it. Every widget calls [Theme.of(context)]
+/// internally to pick up colors, typography, shapes, etc.
 class ThemingDemoApp extends StatefulWidget {
   const ThemingDemoApp({super.key});
 
@@ -30,15 +52,20 @@ class ThemingDemoApp extends StatefulWidget {
 }
 
 class _ThemingDemoAppState extends State<ThemingDemoApp> {
-  ThemeMode _themeMode = ThemeMode.system; // ikuti setting device
-  Color _seedColor = Colors.indigo; // warna seed untuk ColorScheme
+  ThemeMode _themeMode = ThemeMode.system; // follow the device OS setting
+  Color _seedColor = Colors.indigo; // one seed color generates the whole ColorScheme
 
+  /// Toggle between light and dark mode.
+  /// setState() here rebuilds MaterialApp, which propagates the new themeMode
+  /// down the entire widget tree — all descendants update automatically.
   void _toggleTheme() {
     setState(() {
       _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     });
   }
 
+  /// Change the seed color used to generate the ColorScheme.
+  /// Flutter derives ~25 color tokens from a single seed using the M3 algorithm.
   void _changeColor(Color color) {
     setState(() => _seedColor = color);
   }
@@ -86,10 +113,22 @@ class _ThemingDemoAppState extends State<ThemingDemoApp> {
 // DEMO SCREEN
 // ===========================================================================
 
+/// Main demo screen. Receives callbacks from the root app to modify the theme.
+///
+/// Notice: this widget doesn't own any theme state — it only *reads* the
+/// current theme via [Theme.of(context)] and *notifies* the root when the
+/// user requests a change. This is the "lift state up" pattern.
 class ThemingDemoScreen extends StatelessWidget {
+  /// The current theme mode — used to decide which icon to show in the AppBar.
   final ThemeMode themeMode;
+
+  /// Callback to toggle dark/light mode. Defined in [_ThemingDemoAppState].
   final VoidCallback onToggleTheme;
+
+  /// Callback to change the seed color. Defined in [_ThemingDemoAppState].
   final ValueChanged<Color> onChangeColor;
+
+  /// The currently active seed color — passed to [_ColorPicker] to show selection.
   final Color currentColor;
 
   const ThemingDemoScreen({
@@ -102,12 +141,17 @@ class ThemingDemoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Theme.of(context) — access the current theme from anywhere in the tree.
+    // This is how you read colors and styles without hardcoding them.
     final colorScheme = Theme.of(context).colorScheme;
+    // brightness tells you if we're currently in dark or light mode
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Theming & ColorScheme'),
+        // inversePrimary = a light tint of the primary color.
+        // Great for AppBar backgrounds — automatically readable in both modes.
         backgroundColor: colorScheme.inversePrimary,
         actions: [
           IconButton(
@@ -122,28 +166,28 @@ class ThemingDemoScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Pilih warna seed
-            _SectionTitle('Pilih Warna Tema'),
+            // Pick a seed color to regenerate the whole ColorScheme
+            _SectionTitle('Pick a Theme Color'),
             _ColorPicker(currentColor: currentColor, onColorSelected: onChangeColor),
             const SizedBox(height: 24),
 
-            // Tampilkan semua warna di ColorScheme
+            // See all the color tokens that were generated from the seed
             _SectionTitle('ColorScheme Tokens'),
             _ColorSchemeGrid(colorScheme: colorScheme),
             const SizedBox(height: 24),
 
-            // Typography
+            // Typography scale — all the text styles available
             _SectionTitle('Typography Scale'),
             _TypographyDemo(),
             const SizedBox(height: 24),
 
-            // Widget yang otomatis mengikuti theme
-            _SectionTitle('Widgets Mengikuti Theme Otomatis'),
+            // Widgets that automatically follow the theme — no manual colors needed
+            _SectionTitle('Widgets That Follow the Theme Automatically'),
             _ThemedWidgetsDemo(),
             const SizedBox(height: 24),
 
-            // Custom widget yang perlu Theme.of(context)
-            _SectionTitle('Akses Theme di Custom Widget'),
+            // How to manually read the theme in your own custom widget
+            _SectionTitle('Reading the Theme in a Custom Widget'),
             _CustomThemeWidget(),
           ],
         ),
@@ -156,10 +200,23 @@ class ThemingDemoScreen extends StatelessWidget {
 // COLOR PICKER
 // ===========================================================================
 
+/// A row of colored circles that lets the user pick a seed color.
+///
+/// When a new color is tapped, [onColorSelected] notifies the root app,
+/// which rebuilds [MaterialApp] with a new [ThemeData] generated from that seed.
+/// This triggers a cascade rebuild of the entire widget tree — visually
+/// everything changes color at once.
+///
+/// `static const _colors` — static because the list never changes; const
+/// because all values are compile-time constants. This saves memory.
 class _ColorPicker extends StatelessWidget {
+  /// The currently active seed color (shows a checkmark on the selected dot).
   final Color currentColor;
+
+  /// Called when the user taps a color dot.
   final ValueChanged<Color> onColorSelected;
 
+  // static const → computed once at compile time, shared across all instances
   static const _colors = [
     Colors.indigo,
     Colors.blue,
@@ -204,13 +261,26 @@ class _ColorPicker extends StatelessWidget {
 // COLORSCHEME GRID
 // ===========================================================================
 
+/// Displays all the color tokens that M3 generates from a single seed color.
+///
+/// **Key M3 pattern:** every "background" token has a matching "on-" token.
+/// For example:
+/// - `primary` (background color) + `onPrimary` (text/icon on that background)
+/// - `surface` (card background)  + `onSurface` (text on cards)
+///
+/// You never have to manually check if text is readable on a background —
+/// M3 guarantees that "on-" tokens always have sufficient contrast ratio (≥ 4.5:1).
+///
+/// 💡 Tip: Always use the "on-" counterpart for text/icons that sit on
+/// a token background. Never hardcode Colors.white or Colors.black.
 class _ColorSchemeGrid extends StatelessWidget {
   final ColorScheme colorScheme;
   const _ColorSchemeGrid({required this.colorScheme});
 
   @override
   Widget build(BuildContext context) {
-    // Pasangan warna (background + on-background)
+    // Each tuple: (background color, text/icon color on that background, label)
+    // The "on-" color is always readable on its matching background — guaranteed by M3.
     final pairs = [
       (colorScheme.primary, colorScheme.onPrimary, 'primary'),
       (colorScheme.secondary, colorScheme.onSecondary, 'secondary'),
@@ -249,9 +319,23 @@ class _ColorSchemeGrid extends StatelessWidget {
 // TYPOGRAPHY DEMO
 // ===========================================================================
 
+/// Shows the Flutter typography scale — the predefined text sizes for M3.
+///
+/// **Why use TextTheme instead of manual font sizes?**
+/// - Consistent hierarchy across the app (displaySmall for hero text, bodyMedium for paragraphs)
+/// - All styles respect the user's accessibility font size setting (system font scale)
+/// - Easy to override globally in ThemeData.textTheme without touching individual widgets
+///
+/// **Common usage in real apps:**
+/// - `displaySmall` / `headlineLarge` → hero banners, splash screens
+/// - `headlineMedium` / `titleLarge`  → screen titles, card headers
+/// - `bodyLarge` / `bodyMedium`       → paragraph text, descriptions
+/// - `bodySmall` / `labelSmall`       → captions, hints, timestamps
+/// - `labelLarge`                     → buttons (Flutter uses this internally)
 class _TypographyDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Get the current TextTheme — automatically updates with the theme
     final tt = Theme.of(context).textTheme;
     return Card(
       child: Padding(
@@ -276,6 +360,17 @@ class _TypographyDemo extends StatelessWidget {
 // THEMED WIDGETS DEMO
 // ===========================================================================
 
+/// Demonstrates that standard Material widgets pick up the theme automatically.
+///
+/// You don't pass any colors to Switch, Checkbox, Slider, or ProgressIndicator —
+/// they read [ColorScheme.primary] from the theme internally.
+///
+/// **The magic:** every Material widget calls `Theme.of(context)` internally
+/// during its `build()`. When the theme changes, Flutter rebuilds the widget
+/// tree, and all widgets re-read the new colors automatically.
+///
+/// 💡 Tip: Try switching the theme color with the picker above —
+/// all these widgets update instantly without any code changes.
 class _ThemedWidgetsDemo extends StatefulWidget {
   @override
   State<_ThemedWidgetsDemo> createState() => _ThemedWidgetsDemoState();
@@ -293,7 +388,8 @@ class _ThemedWidgetsDemoState extends State<_ThemedWidgetsDemo> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            // Semua widget ini otomatis menggunakan warna dari ColorScheme
+            // All of these widgets use ColorScheme.primary automatically —
+            // no color argument needed. Change the seed color above to see them all update.
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -312,10 +408,9 @@ class _ThemedWidgetsDemoState extends State<_ThemedWidgetsDemo> {
               onChanged: (v) => setState(() => _sliderValue = v),
             ),
             const Divider(),
-            // CircularProgressIndicator — gunakan warna primary
+            // Progress indicators also follow the theme
             const CircularProgressIndicator(),
             const SizedBox(height: 8),
-            // LinearProgressIndicator
             const LinearProgressIndicator(),
           ],
         ),
@@ -375,6 +470,11 @@ class _CustomThemeWidget extends StatelessWidget {
 // HELPER
 // ===========================================================================
 
+/// A bold section title that uses [TextTheme.titleMedium] from the current theme.
+///
+/// Extracting this into a separate widget demonstrates the "composition"
+/// principle: reuse small widgets instead of repeating styling code.
+/// If you wanted to change all section titles, you'd change this one class.
 class _SectionTitle extends StatelessWidget {
   final String text;
   const _SectionTitle(this.text);

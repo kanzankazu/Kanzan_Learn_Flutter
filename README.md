@@ -130,7 +130,7 @@ lib/
                │
                ▼
          Phase 3: State & Navigation   lib/phase3/  ✅
-         Phase 4: Networking & Data    lib/phase4/  🚧
+         Phase 4: Networking & Data    lib/phase4/  ✅
          Phase 5: Architecture         lib/phase5/  🚧
                │
                ▼
@@ -170,7 +170,7 @@ lib/
 | Folder | Topics | Status |
 |---|---|---|
 | `lib/phase3/` | Riverpod, GoRouter, Navigation, Deep Links | ✅ Ready |
-| `lib/phase4/` | Dio, freezed, Hive/Isar, Firebase | 🚧 Coming Soon |
+| `lib/phase4/` | Dio, freezed, Hive/Isar, Firebase | ✅ Ready |
 | `lib/phase5/` | Clean Architecture, Repository Pattern, SOLID | 🚧 Coming Soon |
 
 **🏆 Milestone 2:** Able to build a CRUD app + API + proper state management
@@ -454,3 +454,60 @@ flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart
 | 🛍️ Shopping Cart App | `flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart` | FutureProvider + derived providers + multi-screen flow |
 
 **🏆 Milestone 2:** Can build a CRUD app + API + proper state management
+
+---
+
+## 🟢 Phase 4 — Networking & Data
+
+> Folder: `lib/phase4/`
+> Status: 🟡 In Progress (7/8 topics done — Firebase pending)
+
+### How to Run
+
+```bash
+# Main menu (all topics)
+flutter run -t lib/phase4/main_phase4.dart
+
+# Or run a specific topic directly
+flutter run -t lib/phase4/01_dio_basics/dio_basics_demo.dart
+flutter run -t lib/phase4/02_json_serialization/json_serialization_demo.dart
+flutter run -t lib/phase4/03_state_pattern/state_pattern_demo.dart
+flutter run -t lib/phase4/04_local_storage/local_storage_demo.dart
+flutter run -t lib/phase4/05_image_caching/image_caching_demo.dart
+flutter run -t lib/phase4/06_pagination/pagination_demo.dart
+flutter run -t lib/phase4/07_offline_first/offline_first_demo.dart
+
+# Mini projects
+flutter run -t lib/phase4/mini_projects/weather_app/weather_app.dart
+flutter run -t lib/phase4/mini_projects/news_reader/news_reader_app.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Dio Basics — GET, POST, Interceptors, Error Handling, Cancel Token | `lib/phase4/01_dio_basics/dio_basics_demo.dart` | ✅ |
+| 02 | JSON Serialization — manual fromJson/toJson, copyWith, Result\<T\> | `lib/phase4/02_json_serialization/json_serialization_demo.dart` | ✅ |
+| 03 | State Pattern — sealed `AsyncState<T>`: loading / error / success | `lib/phase4/03_state_pattern/state_pattern_demo.dart` | ✅ |
+| 04 | Local Storage — SharedPreferences + Hive with TypeAdapter | `lib/phase4/04_local_storage/local_storage_demo.dart` | ✅ |
+| 05 | Image Caching — CachedNetworkImage, placeholder, error widget | `lib/phase4/05_image_caching/image_caching_demo.dart` | ✅ |
+| 06 | Pagination & Infinite Scroll — ScrollController, page-based API | `lib/phase4/06_pagination/pagination_demo.dart` | ✅ |
+| 07 | Offline-First — cache-then-network, stale indicators | `lib/phase4/07_offline_first/offline_first_demo.dart` | ✅ |
+| 08 | Firebase — Auth, Firestore, Storage, FCM | — | 🚧 |
+
+### Packages Used
+
+| Package | Version | Purpose |
+|---|---|---|
+| `dio` | ^5.11.0 | HTTP client |
+| `shared_preferences` | ^2.5.5 | Key-value settings |
+| `hive_flutter` | ^1.1.0 | Local NoSQL database |
+| `cached_network_image` | ^3.4.1 | Image caching |
+| `freezed_annotation` | ^3.1.0 | Data class annotations |
+
+### Mini Projects
+
+| Project | How to Run | What it Practices |
+|---|---|---|
+| 🌤️ Weather App | `flutter run -t lib/phase4/mini_projects/weather_app/weather_app.dart` | Dio + Open-Meteo API + SharedPrefs last city + sealed state |
+| 📰 News Reader App | `flutter run -t lib/phase4/mini_projects/news_reader/news_reader_app.dart` | Pagination + Hive cache + CachedNetworkImage + bookmarks + tabs |
