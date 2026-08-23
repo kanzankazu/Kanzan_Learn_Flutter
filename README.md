@@ -10,7 +10,7 @@
 
 ## 📖 About This Repo
 
-This is a **learning repository** — not a production app. Each branch represents one Flutter learning phase, from programming fundamentals to Play Store deployment.
+This is a **learning repository** — not a production app. Each phase lives in its own folder inside `lib/`, so you can explore any phase without switching branches.
 
 Perfect for:
 - Absolute beginners who are just starting to code
@@ -26,88 +26,73 @@ Perfect for:
 git clone https://github.com/kanzankazu/Kanzan_Learn_Flutter.git
 cd Kanzan_Learn_Flutter
 
-# 2. See all available branches
-git branch -r
+# 2. Install dependencies
+flutter pub get
 
-# 3. Checkout to the phase you need
-git checkout phase/0-fondasi-pemrograman
+# 3. Run the phase you want to learn
+flutter run -t lib/phase2/main_phase2.dart   # Phase 2 menu
+flutter run -t lib/phase1/main_phase1.dart   # Phase 1 menu
+dart run lib/phase0/main_phase0.dart          # Phase 0 (Dart CLI)
 
-# 4. Read the README in that branch for detailed guidance
+# 4. Or run a specific topic directly
+flutter run -t lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart
 ```
 
-> **Tips:** Start from the phase that matches your current level. Use the table below to find your entry point.
+> **Tips:** Each file has detailed comments explaining concepts for beginners. Read the comments!
 
 ---
 
 ## 🎯 Where to Start?
 
-| Your Profile | Start from Branch | Estimated Duration |
+| Your Profile | Start from | Estimated Duration |
 |---|---|---|
-| Never coded before | `phase/0-fondasi-pemrograman` | ~6 months |
-| Already know how to code (Python/Java/JS) | `phase/1-dart-language` | ~3.5 months |
-| Mobile native dev (Android/iOS) | `phase/1-dart-language` *(fast track)* | ~2-3 months |
-| Already familiar with Flutter basics | `phase/3-state-navigation` | ~2 months |
+| Never coded before | `lib/phase0/` | ~6 months |
+| Already know how to code (Python/Java/JS) | `lib/phase1/` | ~3.5 months |
+| Mobile native dev (Android/iOS) | `lib/phase1/` *(fast track)* | ~2-3 months |
+| Already familiar with Flutter basics | `lib/phase3/` | ~2 months |
 
 ---
 
-## 🌿 Learning Branches
+## 📁 Folder Structure
 
-### 🟢 Beginner Track
-
-| Branch | Topics | Duration | Status |
-|---|---|---|---|
-| [`phase/0-fondasi-pemrograman`](../../tree/phase/0-fondasi-pemrograman) | Variables, OOP, Collections, Error Handling (Dart CLI) | 2-3 weeks | ✅ Ready |
-| [`phase/1-dart-language`](../../tree/phase/1-dart-language) | Null Safety, Async/Await, Future, Stream, Generics, Mixins | 1-2 weeks | ✅ Ready |
-| [`phase/2-flutter-fundamentals`](../../tree/phase/2-flutter-fundamentals) | Widget Tree, Layout, Forms, Basic Animation | 3-4 weeks | 🚧 Coming Soon |
-
-**🏆 Milestone 1:** Able to clone a well-known app UI (Grab, Tokopedia)
-
----
-
-### 🔵 Intermediate Track
-
-| Branch | Topics | Duration | Status |
-|---|---|---|---|
-| [`phase/3-state-navigation`](../../tree/phase/3-state-navigation) | Riverpod, GoRouter, Navigation, Deep Links | 2-3 weeks | 🚧 Coming Soon |
-| [`phase/4-networking-data`](../../tree/phase/4-networking-data) | Dio, freezed, Hive/Isar, Firebase | 2-3 weeks | 🚧 Coming Soon |
-| [`phase/5-clean-architecture`](../../tree/phase/5-clean-architecture) | Clean Architecture, Repository Pattern, SOLID | 2-3 weeks | 🚧 Coming Soon |
-
-**🏆 Milestone 2:** Able to build a CRUD app + API + proper state management
-
----
-
-### 🟠 Advanced Track
-
-| Branch | Topics | Duration | Status |
-|---|---|---|---|
-| [`phase/6-advanced-flutter`](../../tree/phase/6-advanced-flutter) | Custom Painter, Slivers, Advanced Animation, Maps, FCM | 3-4 weeks | 🚧 Coming Soon |
-| [`phase/7-testing`](../../tree/phase/7-testing) | Unit Test, Widget Test, Integration Test, Mocking | 2 weeks | 🚧 Coming Soon |
-| [`phase/8-deployment`](../../tree/phase/8-deployment) | Flavors, App Signing, CI/CD, Play Store, Crashlytics | 1-2 weeks | 🚧 Coming Soon |
-
-**🏆 Milestone 3:** Production-ready — advanced + tested + published
-
----
-
-### 🟣 Expert Track
-
-| Branch | Topics | Status |
-|---|---|---|
-| [`phase/9-portfolio`](../../tree/phase/9-portfolio) | Production-Quality Portfolio App | 🚧 Coming Soon |
-| [`phase/10-specialization`](../../tree/phase/10-specialization) | Choose a specialization track (Web, Native Interop, AI/ML, etc.) | 🚧 Coming Soon |
-
----
-
-## 📚 Branch Structure
-
-Each branch follows a consistent structure:
+All phases live in `lib/` — no branch switching needed:
 
 ```
-branch: phase/X-topic-name
-├── README.md          ← Detailed guide for this phase (topics, how to run, mini project)
-├── lib/
-│   └── ...            ← Dart/Flutter code with explanatory comments
-├── doc/               ← Additional materials, diagrams, notes
-└── pubspec.yaml
+lib/
+├── phase0/          ← Dart CLI: variables, OOP, collections, error handling
+│   ├── 01_variables/
+│   ├── ...
+│   ├── mini_projects/
+│   └── main_phase0.dart    ← entry point Phase 0
+│
+├── phase1/          ← Dart: null safety, async/await, Future, Stream, generics
+│   ├── 01_null_safety/
+│   ├── ...
+│   ├── mini_projects/
+│   └── main_phase1.dart    ← entry point Phase 1
+│
+├── phase2/          ← Flutter UI fundamentals
+│   ├── 01_stateless_stateful/
+│   ├── 02_layout_widgets/
+│   ├── 03_container_decoration/
+│   ├── 04_scrollable/
+│   ├── 05_input_widgets/
+│   ├── 06_buttons_scaffold/
+│   ├── 07_image_icon_dialog_snackbar/
+│   ├── 08_custom_widget/
+│   ├── 09_theming/
+│   ├── 10_responsive_layout/
+│   ├── 11_animation/
+│   ├── mini_projects/
+│   │   ├── profile_card/
+│   │   ├── calculator/
+│   │   └── recipe_app/
+│   └── main_phase2.dart    ← entry point Phase 2
+│
+├── phase3/          ← (Coming soon) State management & navigation
+├── phase4/          ← (Coming soon) Networking & data
+├── phase5/          ← (Coming soon) Clean architecture
+└── main.dart        ← Default Flutter entry point
 ```
 
 ---
@@ -118,38 +103,87 @@ branch: phase/X-topic-name
 [Never coded]──┐
                ▼
          Phase 0: Programming Fundamentals (2-3 weeks)
+         lib/phase0/  →  dart run lib/phase0/main_phase0.dart
                │
 [Know coding]──▶│
                ▼
          Phase 1: Dart Language (1-2 weeks)
-               │
-[Know Flutter]─┼──────────────────────────┐
-               ▼                          │
-         Phase 2: Flutter Fundamentals    │
-               │    (3-4 weeks)           │
-               ▼                          │
-       ✅ MILESTONE 1: Can build UI       │
-               │                          ▼
-               ▼                   Phase 3: State & Nav
-         Phase 3: State & Nav ◀───────────┘
-         Phase 4: Networking
-         Phase 5: Architecture
+         lib/phase1/  →  dart run lib/phase1/main_phase1.dart
                │
                ▼
-       ✅ MILESTONE 2: Intermediate Dev
+         Phase 2: Flutter Fundamentals (3-4 weeks)
+         lib/phase2/  →  flutter run -t lib/phase2/main_phase2.dart
                │
                ▼
-         Phase 6: Advanced Flutter
-         Phase 7: Testing
-         Phase 8: Deployment
+       ✅ MILESTONE 1: Can clone any app UI
+               │
+               ▼
+         Phase 3: State & Navigation   lib/phase3/  🚧
+         Phase 4: Networking & Data    lib/phase4/  🚧
+         Phase 5: Architecture         lib/phase5/  🚧
+               │
+               ▼
+       ✅ MILESTONE 2: Intermediate Flutter Dev
+               │
+               ▼
+         Phase 6: Advanced Flutter     lib/phase6/  🚧
+         Phase 7: Testing              lib/phase7/  🚧
+         Phase 8: Deployment           lib/phase8/  🚧
                │
                ▼
        ✅ MILESTONE 3: Production-Ready
                │
                ▼
-         Phase 9: Portfolio
-         Phase 10: Specialization
+         Phase 9: Portfolio            lib/phase9/  🚧
+         Phase 10: Specialization      lib/phase10/ 🚧
 ```
+
+---
+
+## 📚 Learning Phases
+
+### 🟢 Beginner Track
+
+| Folder | Topics | How to Run | Status |
+|---|---|---|---|
+| `lib/phase0/` | Variables, OOP, Collections, Error Handling (Dart CLI) | `dart run lib/phase0/main_phase0.dart` | ✅ Ready |
+| `lib/phase1/` | Null Safety, Async/Await, Future, Stream, Generics, Mixins | `dart run lib/phase1/main_phase1.dart` | ✅ Ready |
+| `lib/phase2/` | Widget Tree, Layout, Forms, Theming, Animation | `flutter run -t lib/phase2/main_phase2.dart` | ✅ Ready |
+
+**🏆 Milestone 1:** Able to clone a well-known app UI (Grab, Tokopedia)
+
+---
+
+### 🔵 Intermediate Track
+
+| Folder | Topics | Status |
+|---|---|---|
+| `lib/phase3/` | Riverpod, GoRouter, Navigation, Deep Links | 🚧 Coming Soon |
+| `lib/phase4/` | Dio, freezed, Hive/Isar, Firebase | 🚧 Coming Soon |
+| `lib/phase5/` | Clean Architecture, Repository Pattern, SOLID | 🚧 Coming Soon |
+
+**🏆 Milestone 2:** Able to build a CRUD app + API + proper state management
+
+---
+
+### 🟠 Advanced Track
+
+| Folder | Topics | Status |
+|---|---|---|
+| `lib/phase6/` | Custom Painter, Slivers, Advanced Animation, Maps, FCM | 🚧 Coming Soon |
+| `lib/phase7/` | Unit Test, Widget Test, Integration Test, Mocking | 🚧 Coming Soon |
+| `lib/phase8/` | Flavors, App Signing, CI/CD, Play Store, Crashlytics | 🚧 Coming Soon |
+
+**🏆 Milestone 3:** Production-ready — advanced + tested + published
+
+---
+
+### 🟣 Expert Track
+
+| Folder | Topics | Status |
+|---|---|---|
+| `lib/phase9/` | Production-Quality Portfolio App | 🚧 Coming Soon |
+| `lib/phase10/` | Choose a specialization track | 🚧 Coming Soon |
 
 ---
 
@@ -158,8 +192,8 @@ branch: phase/X-topic-name
 1. **Code every day** — 1 hour/day is better than 8 hours once a week
 2. **Read code comments** — every file already has beginner-friendly explanations
 3. **Build your own projects** — don't just copy-paste, understand it first then modify
-4. **Read error messages** — Flutter error messages are very informative
-5. **Don't skip phases** — a strong foundation = a solid building
+4. **Use hot reload** — change a value, save, see the result instantly
+5. **Read error messages** — Flutter error messages are very informative
 
 ---
 
@@ -185,6 +219,7 @@ flutter doctor
 
 | Need | Package | Introduced in Phase |
 |---|---|---|
+| HTTP Client | [http](https://pub.dev/packages/http) | Phase 1 (Weather CLI) |
 | State Management | [Riverpod](https://riverpod.dev) | Phase 3 |
 | Navigation | [GoRouter](https://pub.dev/packages/go_router) | Phase 3 |
 | Networking | [Dio](https://pub.dev/packages/dio) | Phase 4 |
@@ -203,8 +238,6 @@ Found a typo, confusing code, or want to request a new topic?
 3. Commit with a clear message
 4. Open a Pull Request
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
-
 ---
 
 ## 📬 Contact & Community
@@ -221,29 +254,11 @@ This repo uses the [MIT](LICENSE) license — free to use for learning and perso
 
 ---
 
-## ☕ Support This Project
-
-If this repo helped you learn Flutter, consider buying me a coffee!
-
-All contributions go toward maintaining and expanding this learning repo.
-
 <div align="center">
 
 [![Saweria](https://img.shields.io/badge/Saweria-Donate-orange?logo=ko-fi&logoColor=white)](https://saweria.co/kanzankazu)
 
 **[saweria.co/kanzankazu](https://saweria.co/kanzankazu)**
-
-*Supports: Bank Transfer, QRIS, and more 🇮🇩*
-
-</div>
-
----
-
-<div align="center">
-
-**⭐ If this repo helped you, give it a star!**
-
-*Happy learning & keep building!* 🚀
 
 </div>
 
@@ -251,7 +266,7 @@ All contributions go toward maintaining and expanding this learning repo.
 
 ## 🟢 Phase 0 — Fondasi Pemrograman
 
-> Branch: `phase/0-fondasi-pemrograman`  
+> Folder: `lib/phase0/`
 > Status: ✅ Selesai
 
 ### Topik yang Dipelajari
@@ -266,20 +281,10 @@ All contributions go toward maintaining and expanding this learning repo.
 | 6 | OOP (Object-Oriented Programming) | `lib/phase0/06_oop/oop_demo.dart` |
 | 7 | Error Handling | `lib/phase0/07_error_handling/error_handling_demo.dart` |
 
-### Cara Menjalankan Demo
+### Cara Menjalankan
 
 ```bash
-# Entry point (menu pilih demo)
 dart run lib/phase0/main_phase0.dart
-
-# Atau langsung jalankan file demo tertentu:
-dart run lib/phase0/01_variables/variables_demo.dart
-dart run lib/phase0/02_operators/operators_demo.dart
-dart run lib/phase0/03_control_flow/control_flow_demo.dart
-dart run lib/phase0/04_functions/functions_demo.dart
-dart run lib/phase0/05_collections/collections_demo.dart
-dart run lib/phase0/06_oop/oop_demo.dart
-dart run lib/phase0/07_error_handling/error_handling_demo.dart
 ```
 
 ### Mini Projects
@@ -294,7 +299,7 @@ dart run lib/phase0/07_error_handling/error_handling_demo.dart
 
 ## 🔵 Phase 1 — Dart Language
 
-> Branch: `phase/1-dart-language`  
+> Folder: `lib/phase1/`
 > Status: ✅ Selesai
 
 ### Topik yang Dipelajari
@@ -313,24 +318,10 @@ dart run lib/phase0/07_error_handling/error_handling_demo.dart
 | 10 | Records & Destructuring | `lib/phase1/10_records/records_demo.dart` |
 | 11 | Isolates (Intro) | `lib/phase1/11_isolates/isolates_demo.dart` |
 
-### Cara Menjalankan Demo
+### Cara Menjalankan
 
 ```bash
-# Entry point (menu pilih demo)
 dart run lib/phase1/main_phase1.dart
-
-# Atau langsung jalankan file demo tertentu:
-dart run lib/phase1/01_null_safety/null_safety_demo.dart
-dart run lib/phase1/02_async_future/async_future_demo.dart
-dart run lib/phase1/03_stream/stream_demo.dart
-dart run lib/phase1/04_collections_advanced/collections_advanced_demo.dart
-dart run lib/phase1/05_extensions/extensions_demo.dart
-dart run lib/phase1/06_enum_enhanced/enum_enhanced_demo.dart
-dart run lib/phase1/07_pattern_matching/pattern_matching_demo.dart
-dart run lib/phase1/08_generics/generics_demo.dart
-dart run lib/phase1/09_mixins/mixins_demo.dart
-dart run lib/phase1/10_records/records_demo.dart
-dart run lib/phase1/11_isolates/isolates_demo.dart
 ```
 
 ### Mini Projects
@@ -340,4 +331,57 @@ dart run lib/phase1/11_isolates/isolates_demo.dart
 | 🌤️ Weather CLI App | `OPENWEATHER_API_KEY=your_key dart run lib/phase1/mini_projects/weather/weather_app.dart Jakarta` |
 | 📄 File Processor CLI | `dart run lib/phase1/mini_projects/file_processor/file_processor.dart stats lib/phase1/mini_projects/file_processor/sample.txt` |
 
-> **Catatan Weather App:** Dapatkan API key gratis di [openweathermap.org](https://openweathermap.org/api). Set env var `OPENWEATHER_API_KEY` sebelum menjalankan. Tanpa API key, app akan mencetak instruksi setup dan exit.
+> **Catatan Weather App:** Dapatkan API key gratis di [openweathermap.org](https://openweathermap.org/api).
+
+---
+
+## 🟡 Phase 2 — Flutter Fundamentals
+
+> Folder: `lib/phase2/`
+> Status: 🟡 Sedang Berjalan
+
+### Cara Menjalankan
+
+```bash
+# Menu utama (semua topik)
+flutter run -t lib/phase2/main_phase2.dart
+
+# Atau jalankan topik tertentu langsung
+flutter run -t lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart
+flutter run -t lib/phase2/02_layout_widgets/layout_demo.dart
+flutter run -t lib/phase2/03_container_decoration/container_demo.dart
+flutter run -t lib/phase2/04_scrollable/scrollable_demo.dart
+flutter run -t lib/phase2/05_input_widgets/input_demo.dart
+flutter run -t lib/phase2/06_buttons_scaffold/buttons_demo.dart
+flutter run -t lib/phase2/07_image_icon_dialog_snackbar/media_dialog_demo.dart
+flutter run -t lib/phase2/08_custom_widget/custom_widget_demo.dart
+flutter run -t lib/phase2/09_theming/theming_demo.dart
+flutter run -t lib/phase2/10_responsive_layout/responsive_demo.dart
+flutter run -t lib/phase2/11_animation/animation_demo.dart
+```
+
+### Topik yang Dipelajari
+
+| No | Topik | File |
+|---|---|---|
+| 01 | StatelessWidget & StatefulWidget | `lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart` |
+| 02 | Layout Widgets (Column, Row, Stack, Expanded) | `lib/phase2/02_layout_widgets/layout_demo.dart` |
+| 03 | Container & BoxDecoration | `lib/phase2/03_container_decoration/container_demo.dart` |
+| 04 | Scrollable (ListView, GridView, SingleChildScrollView) | `lib/phase2/04_scrollable/scrollable_demo.dart` |
+| 05 | Input Widgets (TextField, Form, validasi) | `lib/phase2/05_input_widgets/input_demo.dart` |
+| 06 | Button Widgets & AppBar/Scaffold | `lib/phase2/06_buttons_scaffold/buttons_demo.dart` |
+| 07 | Image, Icon, Dialog & SnackBar | `lib/phase2/07_image_icon_dialog_snackbar/media_dialog_demo.dart` |
+| 08 | Custom Widget (extract & composition) | `lib/phase2/08_custom_widget/custom_widget_demo.dart` |
+| 09 | Theming (ThemeData, ColorScheme, dark mode) | `lib/phase2/09_theming/theming_demo.dart` |
+| 10 | Responsive Layout (MediaQuery, LayoutBuilder) | `lib/phase2/10_responsive_layout/responsive_demo.dart` |
+| 11 | Animasi Dasar (AnimatedContainer, Hero, AnimatedSwitcher) | `lib/phase2/11_animation/animation_demo.dart` |
+
+### Mini Projects
+
+| Project | Cara Jalankan |
+|---|---|
+| 👤 Profile Card App | `flutter run -t lib/phase2/mini_projects/profile_card/profile_card_app.dart` |
+| 🧮 Calculator App | `flutter run -t lib/phase2/mini_projects/calculator/calculator_app.dart` |
+| 🍳 Recipe App | `flutter run -t lib/phase2/mini_projects/recipe_app/recipe_app.dart` |
+
+**🏆 Milestone 1:** Bisa clone UI app terkenal (Grab/Tokopedia)
