@@ -131,7 +131,7 @@ lib/
                ▼
          Phase 3: State & Navigation   lib/phase3/  ✅
          Phase 4: Networking & Data    lib/phase4/  ✅
-         Phase 5: Architecture         lib/phase5/  🚧
+         Phase 5: Architecture         lib/phase5/  ✅
                │
                ▼
        ✅ MILESTONE 2: Intermediate Flutter Dev
@@ -171,7 +171,7 @@ lib/
 |---|---|---|
 | `lib/phase3/` | Riverpod, GoRouter, Navigation, Deep Links | ✅ Ready |
 | `lib/phase4/` | Dio, freezed, Hive/Isar, Firebase | ✅ Ready |
-| `lib/phase5/` | Clean Architecture, Repository Pattern, SOLID | 🚧 Coming Soon |
+| `lib/phase5/` | Clean Architecture, Repository Pattern, SOLID | ✅ Ready |
 
 **🏆 Milestone 2:** Able to build a CRUD app + API + proper state management
 
@@ -451,9 +451,60 @@ flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart
 | Project | How to Run | What it Practices |
 |---|---|---|
 | ✅ Multi-screen Todo App | `flutter run -t lib/phase3/mini_projects/todo_app/todo_app.dart` | GoRouter + Riverpod StateNotifier + filter + form validation |
-| 🛍️ Shopping Cart App | `flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart` | FutureProvider + derived providers + multi-screen flow |
+| 🛍️ Shopping Cart App | `flutter run -t lib/phase4/mini_projects/shopping_cart/shopping_cart_app.dart` | FutureProvider + derived providers + multi-screen flow |
 
 **🏆 Milestone 2:** Can build a CRUD app + API + proper state management
+
+---
+
+## 🔵 Phase 5 — Architecture & Clean Code
+
+> Folder: `lib/phase5/`
+> Status: 🟡 In Progress (6/7 topics done — code generation pending)
+
+### How to Run
+
+```bash
+# Main menu (all topics)
+flutter run -t lib/phase5/main_phase5.dart
+
+# Or run a specific topic directly
+flutter run -t lib/phase5/01_solid/solid_demo.dart
+flutter run -t lib/phase5/02_repository_pattern/repository_pattern_demo.dart
+flutter run -t lib/phase5/03_clean_architecture/clean_architecture_demo.dart
+flutter run -t lib/phase5/04_use_cases/use_cases_demo.dart
+flutter run -t lib/phase5/05_dependency_injection/di_demo.dart
+flutter run -t lib/phase5/06_error_handling/error_handling_demo.dart
+
+# Mini project
+flutter run -t lib/phase5/mini_projects/weather_clean/weather_clean_app.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | SOLID Principles — SRP, OCP, LSP, ISP, DIP (before/after for each) | `lib/phase5/01_solid/solid_demo.dart` | ✅ |
+| 02 | Repository Pattern — abstract interface + multiple implementations | `lib/phase5/02_repository_pattern/repository_pattern_demo.dart` | ✅ |
+| 03 | Clean Architecture — data/domain/presentation layers + DTOs | `lib/phase5/03_clean_architecture/clean_architecture_demo.dart` | ✅ |
+| 04 | Use Cases — when to create vs when to skip (passthrough anti-pattern) | `lib/phase5/04_use_cases/use_cases_demo.dart` | ✅ |
+| 05 | Dependency Injection — get_it (factory, singleton, lazySingleton) | `lib/phase5/05_dependency_injection/di_demo.dart` | ✅ |
+| 06 | Error Handling — sealed `Result<T>`, typed `AppError` hierarchy | `lib/phase5/06_error_handling/error_handling_demo.dart` | ✅ |
+| 07 | Code Generation — freezed, json_serializable, build_runner | — | 🚧 |
+
+### Packages Used
+
+| Package | Version | Purpose |
+|---|---|---|
+| `get_it` | ^9.2.1 | Dependency injection service locator |
+
+### Mini Project
+
+| Project | How to Run | What it Practices |
+|---|---|---|
+| 🌤️ Weather App (Clean Architecture) | `flutter run -t lib/phase5/mini_projects/weather_clean/weather_clean_app.dart` | Phase 4 Weather App refactored: domain/data/presentation + Repository + Use Case + get_it + Result\<T\> |
+
+> 💡 Compare `lib/phase4/mini_projects/weather_app/` vs `lib/phase5/mini_projects/weather_clean/` to see exactly what Clean Architecture changes.
 
 ---
 
