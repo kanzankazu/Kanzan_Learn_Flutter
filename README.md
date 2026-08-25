@@ -137,15 +137,15 @@ lib/
        ✅ MILESTONE 2: Intermediate Flutter Dev
                │
                ▼
-         Phase 6: Advanced Flutter     lib/phase6/  🚧
-         Phase 7: Testing              lib/phase7/  🚧
-         Phase 8: Deployment           lib/phase8/  🚧
+         Phase 6: Advanced Flutter     lib/phase6/  ✅
+         Phase 7: Testing              lib/phase7/  ✅
+         Phase 8: Deployment           lib/phase8/  ✅
                │
                ▼
        ✅ MILESTONE 3: Production-Ready
                │
                ▼
-         Phase 9: Portfolio            lib/phase9/  🚧
+         Phase 9: Portfolio            lib/phase9/  ✅
          Phase 10: Specialization      lib/phase10/ 🚧
 ```
 
@@ -193,7 +193,7 @@ lib/
 
 | Folder | Topics | Status |
 |---|---|---|
-| `lib/phase9/` | Production-Quality Portfolio App | 🚧 Coming Soon |
+| `lib/phase9/` | Production-Quality Portfolio App | ✅ Ready |
 | `lib/phase10/` | Choose a specialization track | 🚧 Coming Soon |
 
 ---
@@ -710,3 +710,64 @@ flutter run -t lib/phase8/06_code_obfuscation/code_obfuscation_demo.dart
 | `flutter build appbundle --obfuscate --split-debug-info=build/symbols` | Obfuscated build |
 
 **🏆 Milestone 3:** Production-ready — advanced + tested + published
+
+---
+
+## 🟣 Phase 9 — Portfolio & Job Ready
+
+> Folder: `lib/phase9/`
+> Status: ✅ Done
+
+### How to Run
+
+```bash
+# Topic menu
+flutter run -t lib/phase9/main_phase9.dart
+
+# Portfolio app directly
+flutter run -t lib/phase9/mini_projects/personal_finance/personal_finance_app.dart
+
+# Or run a specific topic
+flutter run -t lib/phase9/01_portfolio_planning/portfolio_planning_demo.dart
+flutter run -t lib/phase9/02_clean_architecture_review/clean_architecture_review_demo.dart
+flutter run -t lib/phase9/03_production_patterns/production_patterns_demo.dart
+flutter run -t lib/phase9/04_github_best_practices/github_best_practices_demo.dart
+flutter run -t lib/phase9/05_interview_prep/interview_prep_demo.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Portfolio Planning — what makes a strong portfolio, GitHub checklist, app ideas | `lib/phase9/01_portfolio_planning/portfolio_planning_demo.dart` | ✅ |
+| 02 | Clean Architecture Review — layers, Entity/DTO/Mapper, Repository, Use Cases | `lib/phase9/02_clean_architecture_review/clean_architecture_review_demo.dart` | ✅ |
+| 03 | Production Patterns — AsyncState, retry, offline-first, pagination, debounce, optimistic UI | `lib/phase9/03_production_patterns/production_patterns_demo.dart` | ✅ |
+| 04 | GitHub Best Practices — Conventional Commits, branching, tags, profile README | `lib/phase9/04_github_best_practices/github_best_practices_demo.dart` | ✅ |
+| 05 | Interview Prep — 20 Q&A: Dart, Flutter, state, performance, testing, patterns | `lib/phase9/05_interview_prep/interview_prep_demo.dart` | ✅ |
+
+### Mini Project: Personal Finance Manager
+
+A full production-quality portfolio app demonstrating all Phase 0–8 skills working together.
+
+| Screen | Features |
+|--------|----------|
+| Dashboard | Net worth, income/expense summary, 6-month bar chart (Custom Painter), wallet cards, recent transactions |
+| Transactions | Search, filter by type, amount summary, transaction list |
+| Wallets | All wallets with balances, type icons, total net worth |
+| Budget | Per-category monthly limits with progress bars, over-budget alerts |
+| Analytics | Donut chart breakdown, category ranking with progress bars |
+
+**Architecture:**
+
+```
+lib/phase9/mini_projects/personal_finance/
+├── domain/
+│   ├── entities/     transaction.dart, wallet.dart, budget.dart
+│   ├── repositories/ i_transaction_repository.dart, i_wallet_repository.dart, i_budget_repository.dart
+│   └── usecases/     add_transaction_usecase.dart (validates + saves + checks budget)
+├── screens/          dashboard, transactions, wallets, budget, analytics
+├── widgets/          amount_display, transaction_list_tile, wallet_card, monthly_bar_chart
+└── personal_finance_app.dart
+```
+
+**🏆 Milestone — Zero to Hero Complete:** You can now build, test, and ship production-quality Flutter apps. Next: Phase 10 — choose your specialization track.
