@@ -147,9 +147,9 @@ lib/
                ▼
          Phase 9: Portfolio            lib/phase9/  ✅
          Phase 10.1: Web & Desktop     lib/phase10/10_1_web_desktop/    ✅
-         Phase 10.2: Advanced State    lib/phase10/10_2_advanced_state/ 🚧
-         Phase 10.3: Native Interop    lib/phase10/10_3_native_interop/ 🚧
-         Phase 10.4: Performance       lib/phase10/10_4_performance/    🚧
+         Phase 10.2: Advanced State    lib/phase10/10_2_advanced_state/ ✅
+         Phase 10.3: Native Interop    lib/phase10/10_3_native_interop/ ✅
+         Phase 10.4: Performance       lib/phase10/10_4_performance/    ✅
          Phase 10.5: Super App         lib/phase10/10_5_super_app/      🚧
          Phase 10.6: Backend           lib/phase10/10_6_backend/        🚧
          Phase 10.7: AI/ML Mobile      lib/phase10/10_7_ai_ml/          🚧
@@ -201,9 +201,9 @@ lib/
 |---|---|---|
 | `lib/phase9/` | Production-Quality Portfolio App | ✅ Ready |
 | `lib/phase10/10_1_web_desktop/` | Track 1 — Web & Desktop (Responsive Web, PWA, Dart Frog) | ✅ Ready |
-| `lib/phase10/10_2_advanced_state/` | Track 2 — Advanced State (Riverpod Generator, Offline-first, CRDT) | 🚧 Coming Soon |
-| `lib/phase10/10_3_native_interop/` | Track 3 — Native Interop (Method/Event Channel, Pigeon, Dart FFI) | 🚧 Coming Soon |
-| `lib/phase10/10_4_performance/` | Track 4 — Performance (DevTools, Custom RenderObject, Shader) | 🚧 Coming Soon |
+| `lib/phase10/10_2_advanced_state/` | Track 2 — Advanced State (Riverpod Generator, Offline-first, CRDT) | ✅ Ready |
+| `lib/phase10/10_3_native_interop/` | Track 3 — Native Interop (Method/Event Channel, Pigeon, Dart FFI) | ✅ Ready |
+| `lib/phase10/10_4_performance/` | Track 4 — Performance (DevTools, Custom RenderObject, Shader) | ✅ Ready |
 | `lib/phase10/10_5_super_app/` | Track 5 — Super App (Melos, Micro-frontend, Feature Flags) | 🚧 Coming Soon |
 | `lib/phase10/10_6_backend/` | Track 6 — Backend (GraphQL, gRPC, Supabase, CRDT) | 🚧 Coming Soon |
 | `lib/phase10/10_7_ai_ml/` | Track 7 — AI/ML Mobile (TFLite, ML Kit, On-device LLM) | 🚧 Coming Soon |
@@ -829,3 +829,66 @@ flutter build web --release --web-renderer skwasm
 - `< 600px` → BottomNavigationBar
 - `600–1100px` → Compact NavigationRail (icons only)
 - `> 1100px` → Extended sidebar with labels + keyboard shortcuts (Alt+1–5)
+
+---
+
+## 🟣 Phase 10.2 — Track 2: Advanced State Management
+
+> Folder: `lib/phase10/10_2_advanced_state/`
+> Status: ✅ Done
+
+```bash
+flutter run -t lib/phase10/10_2_advanced_state/main_phase10_2.dart
+flutter run -t lib/phase10/10_2_advanced_state/mini_projects/collaborative_notes/collaborative_notes_app.dart
+```
+
+| No | Topic | Key Concepts |
+|---|---|---|
+| 01 | Riverpod Generator | @riverpod, code-gen, AsyncNotifier, family, keepAlive |
+| 02 | Offline-First Advanced | Sync queue, conflict resolution (LWW/Server-Wins), connectivity_plus |
+| 03 | CRDT | G-Counter, LWW-Register, OR-Set, crdt package, HLC |
+| 04 | State Machines | Sealed-class FSM, guard transitions, XState patterns |
+
+**Mini Project:** Collaborative Notes — offline-first notes with sync queue, CRDT conflict resolution, and connectivity monitoring.
+
+---
+
+## 🟣 Phase 10.3 — Track 3: Native Interop
+
+> Folder: `lib/phase10/10_3_native_interop/`
+> Status: ✅ Done
+
+```bash
+flutter run -t lib/phase10/10_3_native_interop/main_phase10_3.dart
+flutter run -t lib/phase10/10_3_native_interop/mini_projects/battery_plugin/battery_plugin_demo.dart
+```
+
+| No | Topic | Key Concepts |
+|---|---|---|
+| 01 | Advanced Channels | Error codes, bidirectional, timeout, test mocks |
+| 02 | Pigeon | @HostApi/@FlutterApi, nested types, enums, code-gen |
+| 03 | Dart FFI | DynamicLibrary, Pointer, Struct, Arena, ffigen |
+| 04 | Plugin Development | Federated structure, platform interface, pub.dev checklist |
+
+**Mini Project:** Battery Plugin — complete Pigeon-based plugin demo for battery level + charging state.
+
+---
+
+## 🟣 Phase 10.4 — Track 4: Performance
+
+> Folder: `lib/phase10/10_4_performance/`
+> Status: ✅ Done
+
+```bash
+flutter run -t lib/phase10/10_4_performance/main_phase10_4.dart
+flutter run -t lib/phase10/10_4_performance/mini_projects/perf_dashboard/perf_dashboard_app.dart
+```
+
+| No | Topic | Key Concepts |
+|---|---|---|
+| 01 | DevTools Profiling | CPU profiler, rebuild stats, RepaintBoundary, Timeline |
+| 02 | Custom RenderObject | performLayout, paint, hitTest, ring layout |
+| 03 | Shader Effects | GLSL, FragmentProgram, wave/blur/noise, GPU rendering |
+| 04 | Isolates & compute() | Isolate.run(), compute(), SendPort/ReceivePort, worker |
+
+**Mini Project:** Performance Dashboard — live FPS counter, frame time chart (Custom Painter), jank detector, workload simulator.
