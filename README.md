@@ -146,7 +146,13 @@ lib/
                │
                ▼
          Phase 9: Portfolio            lib/phase9/  ✅
-         Phase 10: Specialization      lib/phase10/ 🚧
+         Phase 10.1: Web & Desktop     lib/phase10/10_1_web_desktop/    ✅
+         Phase 10.2: Advanced State    lib/phase10/10_2_advanced_state/ 🚧
+         Phase 10.3: Native Interop    lib/phase10/10_3_native_interop/ 🚧
+         Phase 10.4: Performance       lib/phase10/10_4_performance/    🚧
+         Phase 10.5: Super App         lib/phase10/10_5_super_app/      🚧
+         Phase 10.6: Backend           lib/phase10/10_6_backend/        🚧
+         Phase 10.7: AI/ML Mobile      lib/phase10/10_7_ai_ml/          🚧
 ```
 
 ---
@@ -194,7 +200,13 @@ lib/
 | Folder | Topics | Status |
 |---|---|---|
 | `lib/phase9/` | Production-Quality Portfolio App | ✅ Ready |
-| `lib/phase10/` | Choose a specialization track | 🚧 Coming Soon |
+| `lib/phase10/10_1_web_desktop/` | Track 1 — Web & Desktop (Responsive Web, PWA, Dart Frog) | ✅ Ready |
+| `lib/phase10/10_2_advanced_state/` | Track 2 — Advanced State (Riverpod Generator, Offline-first, CRDT) | 🚧 Coming Soon |
+| `lib/phase10/10_3_native_interop/` | Track 3 — Native Interop (Method/Event Channel, Pigeon, Dart FFI) | 🚧 Coming Soon |
+| `lib/phase10/10_4_performance/` | Track 4 — Performance (DevTools, Custom RenderObject, Shader) | 🚧 Coming Soon |
+| `lib/phase10/10_5_super_app/` | Track 5 — Super App (Melos, Micro-frontend, Feature Flags) | 🚧 Coming Soon |
+| `lib/phase10/10_6_backend/` | Track 6 — Backend (GraphQL, gRPC, Supabase, CRDT) | 🚧 Coming Soon |
+| `lib/phase10/10_7_ai_ml/` | Track 7 — AI/ML Mobile (TFLite, ML Kit, On-device LLM) | 🚧 Coming Soon |
 
 ---
 
@@ -771,3 +783,49 @@ lib/phase9/mini_projects/personal_finance/
 ```
 
 **🏆 Milestone — Zero to Hero Complete:** You can now build, test, and ship production-quality Flutter apps. Next: Phase 10 — choose your specialization track.
+
+---
+
+## 🟣 Phase 10.1 — Track 1: Web & Desktop
+
+> Folder: `lib/phase10/10_1_web_desktop/`
+> Status: ✅ Done
+
+### How to Run
+
+```bash
+# Topic menu
+flutter run -d chrome -t lib/phase10/10_1_web_desktop/main_phase10_1.dart
+
+# Mini project — Admin Dashboard (best on Chrome or macOS)
+flutter run -d chrome -t lib/phase10/10_1_web_desktop/mini_projects/dashboard_app/dashboard_app.dart
+flutter run -d macos  -t lib/phase10/10_1_web_desktop/mini_projects/dashboard_app/dashboard_app.dart
+
+# Build for web production
+flutter build web --release --web-renderer skwasm
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Responsive Web — breakpoints, MouseRegion, SelectionArea, fluid grid | `lib/phase10/10_1_web_desktop/01_responsive_web/responsive_web_demo.dart` | ✅ |
+| 02 | PWA — manifest.json, service worker, install prompt, Lighthouse | `lib/phase10/10_1_web_desktop/02_pwa/pwa_demo.dart` | ✅ |
+| 03 | Web-Specific APIs — URL strategy, clipboard, JS interop, file download | `lib/phase10/10_1_web_desktop/03_web_specific_apis/web_specific_apis_demo.dart` | ✅ |
+| 04 | Desktop Layout — adaptive nav, master-detail, keyboard shortcuts, D&D | `lib/phase10/10_1_web_desktop/04_desktop_layout/desktop_layout_demo.dart` | ✅ |
+| 05 | Dart Frog — server-side Dart, file-based routing, middleware, shared models | `lib/phase10/10_1_web_desktop/05_dart_frog/dart_frog_demo.dart` | ✅ |
+| 06 | Web Performance — CanvasKit vs Skwasm, tree-shaking, deferred loading | `lib/phase10/10_1_web_desktop/06_flutter_web_performance/web_performance_demo.dart` | ✅ |
+
+### Mini Project: Admin Dashboard
+
+| Screen | Features |
+|--------|----------|
+| Dashboard | KPI cards (hover effect), 6-month bar chart (Custom Painter), donut chart, recent orders table |
+| Users | PaginatedDataTable with sort, filter, pagination |
+| Products | Fluid responsive grid with search + category filter |
+| Settings | Toggle switches, slider, form |
+
+**Layout adapts at:**
+- `< 600px` → BottomNavigationBar
+- `600–1100px` → Compact NavigationRail (icons only)
+- `> 1100px` → Extended sidebar with labels + keyboard shortcuts (Alt+1–5)
