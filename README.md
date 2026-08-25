@@ -181,7 +181,7 @@ lib/
 
 | Folder | Topics | Status |
 |---|---|---|
-| `lib/phase6/` | Custom Painter, Slivers, Advanced Animation, Maps, FCM | 🚧 Coming Soon |
+| `lib/phase6/` | Custom Painter, Slivers, Advanced Animation, Platform Channels, Responsive, Accessibility, i18n | ✅ Ready |
 | `lib/phase7/` | Unit Test, Widget Test, Integration Test, Mocking | 🚧 Coming Soon |
 | `lib/phase8/` | Flavors, App Signing, CI/CD, Play Store, Crashlytics | 🚧 Coming Soon |
 
@@ -267,9 +267,13 @@ This repo uses the [MIT](LICENSE) license — free to use for learning and perso
 
 <div align="center">
 
+If this repo helped you learn Flutter, consider buying me a coffee ☕
+
 [![Saweria](https://img.shields.io/badge/Saweria-Donate-orange?logo=ko-fi&logoColor=white)](https://saweria.co/kanzankazu)
 
 **[saweria.co/kanzankazu](https://saweria.co/kanzankazu)**
+
+Supports transfer bank & QRIS — any amount is appreciated 🙏
 
 </div>
 
@@ -457,57 +461,6 @@ flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart
 
 ---
 
-## 🔵 Phase 5 — Architecture & Clean Code
-
-> Folder: `lib/phase5/`
-> Status: 🟡 In Progress (6/7 topics done — code generation pending)
-
-### How to Run
-
-```bash
-# Main menu (all topics)
-flutter run -t lib/phase5/main_phase5.dart
-
-# Or run a specific topic directly
-flutter run -t lib/phase5/01_solid/solid_demo.dart
-flutter run -t lib/phase5/02_repository_pattern/repository_pattern_demo.dart
-flutter run -t lib/phase5/03_clean_architecture/clean_architecture_demo.dart
-flutter run -t lib/phase5/04_use_cases/use_cases_demo.dart
-flutter run -t lib/phase5/05_dependency_injection/di_demo.dart
-flutter run -t lib/phase5/06_error_handling/error_handling_demo.dart
-
-# Mini project
-flutter run -t lib/phase5/mini_projects/weather_clean/weather_clean_app.dart
-```
-
-### Topics Covered
-
-| No | Topic | File | Status |
-|---|---|---|---|
-| 01 | SOLID Principles — SRP, OCP, LSP, ISP, DIP (before/after for each) | `lib/phase5/01_solid/solid_demo.dart` | ✅ |
-| 02 | Repository Pattern — abstract interface + multiple implementations | `lib/phase5/02_repository_pattern/repository_pattern_demo.dart` | ✅ |
-| 03 | Clean Architecture — data/domain/presentation layers + DTOs | `lib/phase5/03_clean_architecture/clean_architecture_demo.dart` | ✅ |
-| 04 | Use Cases — when to create vs when to skip (passthrough anti-pattern) | `lib/phase5/04_use_cases/use_cases_demo.dart` | ✅ |
-| 05 | Dependency Injection — get_it (factory, singleton, lazySingleton) | `lib/phase5/05_dependency_injection/di_demo.dart` | ✅ |
-| 06 | Error Handling — sealed `Result<T>`, typed `AppError` hierarchy | `lib/phase5/06_error_handling/error_handling_demo.dart` | ✅ |
-| 07 | Code Generation — freezed, json_serializable, build_runner | — | 🚧 |
-
-### Packages Used
-
-| Package | Version | Purpose |
-|---|---|---|
-| `get_it` | ^9.2.1 | Dependency injection service locator |
-
-### Mini Project
-
-| Project | How to Run | What it Practices |
-|---|---|---|
-| 🌤️ Weather App (Clean Architecture) | `flutter run -t lib/phase5/mini_projects/weather_clean/weather_clean_app.dart` | Phase 4 Weather App refactored: domain/data/presentation + Repository + Use Case + get_it + Result\<T\> |
-
-> 💡 Compare `lib/phase4/mini_projects/weather_app/` vs `lib/phase5/mini_projects/weather_clean/` to see exactly what Clean Architecture changes.
-
----
-
 ## 🟢 Phase 4 — Networking & Data
 
 > Folder: `lib/phase4/`
@@ -562,3 +515,97 @@ flutter run -t lib/phase4/mini_projects/news_reader/news_reader_app.dart
 |---|---|---|
 | 🌤️ Weather App | `flutter run -t lib/phase4/mini_projects/weather_app/weather_app.dart` | Dio + Open-Meteo API + SharedPrefs last city + sealed state |
 | 📰 News Reader App | `flutter run -t lib/phase4/mini_projects/news_reader/news_reader_app.dart` | Pagination + Hive cache + CachedNetworkImage + bookmarks + tabs |
+
+---
+
+## 🔵 Phase 5 — Architecture & Clean Code
+
+> Folder: `lib/phase5/`
+> Status: 🟡 In Progress (6/7 topics done — code generation pending)
+
+### How to Run
+
+```bash
+# Main menu (all topics)
+flutter run -t lib/phase5/main_phase5.dart
+
+# Or run a specific topic directly
+flutter run -t lib/phase5/01_solid/solid_demo.dart
+flutter run -t lib/phase5/02_repository_pattern/repository_pattern_demo.dart
+flutter run -t lib/phase5/03_clean_architecture/clean_architecture_demo.dart
+flutter run -t lib/phase5/04_use_cases/use_cases_demo.dart
+flutter run -t lib/phase5/05_dependency_injection/di_demo.dart
+flutter run -t lib/phase5/06_error_handling/error_handling_demo.dart
+
+# Mini project
+flutter run -t lib/phase5/mini_projects/weather_clean/weather_clean_app.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | SOLID Principles — SRP, OCP, LSP, ISP, DIP (before/after for each) | `lib/phase5/01_solid/solid_demo.dart` | ✅ |
+| 02 | Repository Pattern — abstract interface + multiple implementations | `lib/phase5/02_repository_pattern/repository_pattern_demo.dart` | ✅ |
+| 03 | Clean Architecture — data/domain/presentation layers + DTOs | `lib/phase5/03_clean_architecture/clean_architecture_demo.dart` | ✅ |
+| 04 | Use Cases — when to create vs when to skip (passthrough anti-pattern) | `lib/phase5/04_use_cases/use_cases_demo.dart` | ✅ |
+| 05 | Dependency Injection — get_it (factory, singleton, lazySingleton) | `lib/phase5/05_dependency_injection/di_demo.dart` | ✅ |
+| 06 | Error Handling — sealed `Result<T>`, typed `AppError` hierarchy | `lib/phase5/06_error_handling/error_handling_demo.dart` | ✅ |
+| 07 | Code Generation — freezed, json_serializable, build_runner | — | 🚧 |
+
+### Packages Used
+
+| Package | Version | Purpose |
+|---|---|---|
+| `get_it` | ^9.2.1 | Dependency injection service locator |
+
+### Mini Project
+
+| Project | How to Run | What it Practices |
+|---|---|---|
+| 🌤️ Weather App (Clean Architecture) | `flutter run -t lib/phase5/mini_projects/weather_clean/weather_clean_app.dart` | Phase 4 Weather App refactored: domain/data/presentation + Repository + Use Case + get_it + Result\<T\> |
+
+> 💡 Compare `lib/phase4/mini_projects/weather_app/` vs `lib/phase5/mini_projects/weather_clean/` to see exactly what Clean Architecture changes.
+
+---
+
+## 🟠 Phase 6 — Advanced Flutter
+
+> Folder: `lib/phase6/`
+> Status: ✅ Done
+
+### How to Run
+
+```bash
+# Main menu (all topics)
+flutter run -t lib/phase6/main_phase6.dart
+
+# Or run a specific topic directly
+flutter run -t lib/phase6/01_custom_painter/custom_painter_demo.dart
+flutter run -t lib/phase6/02_slivers/slivers_demo.dart
+flutter run -t lib/phase6/03_advanced_animation/advanced_animation_demo.dart
+flutter run -t lib/phase6/04_platform_channels/platform_channels_demo.dart
+flutter run -t lib/phase6/05_responsive_adaptive/responsive_adaptive_demo.dart
+flutter run -t lib/phase6/06_accessibility/accessibility_demo.dart
+flutter run -t lib/phase6/07_internationalization/internationalization_demo.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Custom Painter — shapes, animated arc, bar chart via Canvas API | `lib/phase6/01_custom_painter/custom_painter_demo.dart` | ✅ |
+| 02 | Slivers — SliverAppBar, SliverList, SliverGrid, SliverPersistentHeader | `lib/phase6/02_slivers/slivers_demo.dart` | ✅ |
+| 03 | Advanced Animation — AnimationController, Tween, CurvedAnimation, Stagger | `lib/phase6/03_advanced_animation/advanced_animation_demo.dart` | ✅ |
+| 04 | Platform Channels — MethodChannel (one-shot) + EventChannel (stream) | `lib/phase6/04_platform_channels/platform_channels_demo.dart` | ✅ |
+| 05 | Responsive & Adaptive — MediaQuery, LayoutBuilder, phone vs tablet nav | `lib/phase6/05_responsive_adaptive/responsive_adaptive_demo.dart` | ✅ |
+| 06 | Accessibility — Semantics, MergeSemantics, ExcludeSemantics, live regions | `lib/phase6/06_accessibility/accessibility_demo.dart` | ✅ |
+| 07 | Internationalization — ARB files, flutter gen-l10n, intl, RTL support | `lib/phase6/07_internationalization/internationalization_demo.dart` | ✅ |
+
+### Mini Project
+
+| Project | How to Run | What it Practices |
+|---|---|---|
+| 💪 Fitness Tracker App | `flutter run -t lib/phase6/mini_projects/fitness_tracker/fitness_tracker_app.dart` | Custom Painter progress rings + Slivers collapsing header + Responsive layout | 🚧 |
+
+**🏆 Milestone 3:** Production-ready — advanced + tested + published
