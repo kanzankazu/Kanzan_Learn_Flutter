@@ -182,8 +182,8 @@ lib/
 | Folder | Topics | Status |
 |---|---|---|
 | `lib/phase6/` | Custom Painter, Slivers, Advanced Animation, Platform Channels, Responsive, Accessibility, i18n | ✅ Ready |
-| `lib/phase7/` | Unit Test, Widget Test, Integration Test, Mocking | 🚧 Coming Soon |
-| `lib/phase8/` | Flavors, App Signing, CI/CD, Play Store, Crashlytics | 🚧 Coming Soon |
+| `lib/phase7/` | Unit Test, Widget Test, Integration Test, Mocking | ✅ Ready |
+| `lib/phase8/` | Flavors, App Signing, CI/CD, Play Store, Crashlytics | ✅ Ready |
 
 **🏆 Milestone 3:** Production-ready — advanced + tested + published
 
@@ -461,7 +461,7 @@ flutter run -t lib/phase3/mini_projects/shopping_cart/shopping_cart_app.dart
 
 ---
 
-## 🟢 Phase 4 — Networking & Data
+## 🔵 Phase 4 — Networking & Data
 
 > Folder: `lib/phase4/`
 > Status: 🟡 In Progress (7/8 topics done — Firebase pending)
@@ -607,5 +607,106 @@ flutter run -t lib/phase6/07_internationalization/internationalization_demo.dart
 | Project | How to Run | What it Practices |
 |---|---|---|
 | 💪 Fitness Tracker App | `flutter run -t lib/phase6/mini_projects/fitness_tracker/fitness_tracker_app.dart` | Custom Painter progress rings + Slivers collapsing header + Responsive layout | 🚧 |
+
+**🏆 Milestone 3:** Production-ready — advanced + tested + published
+
+---
+
+## 🟠 Phase 7 — Testing
+
+> Folder: `lib/phase7/`
+> Status: ✅ Done
+
+### How to Run
+
+```bash
+# Demo app (concepts + interactive examples)
+flutter run -t lib/phase7/main_phase7.dart
+
+# Or run a specific topic
+flutter run -t lib/phase7/01_unit_test/unit_test_demo.dart
+flutter run -t lib/phase7/02_widget_test/widget_test_demo.dart
+flutter run -t lib/phase7/03_integration_test/integration_test_demo.dart
+flutter run -t lib/phase7/04_mocking/mocking_demo.dart
+flutter run -t lib/phase7/05_code_coverage/code_coverage_demo.dart
+flutter run -t lib/phase7/06_golden_test/golden_test_demo.dart
+
+# Run the actual tests (in test/phase7/)
+flutter test test/phase7/
+flutter test --coverage
+flutter test --update-goldens     # regenerate golden files
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Unit Test — test(), expect(), matchers, group, setUp/tearDown, async | `lib/phase7/01_unit_test/unit_test_demo.dart` | ✅ |
+| 02 | Widget Test — testWidgets(), Finder, pump/pumpAndSettle, interactions | `lib/phase7/02_widget_test/widget_test_demo.dart` | ✅ |
+| 03 | Integration Test — full app on real device, Page Object Model | `lib/phase7/03_integration_test/integration_test_demo.dart` | ✅ |
+| 04 | Mocking — mockito vs mocktail, when/verify, Mock vs Fake vs Stub | `lib/phase7/04_mocking/mocking_demo.dart` | ✅ |
+| 05 | Code Coverage — flutter test --coverage, genhtml, CI enforcement | `lib/phase7/05_code_coverage/code_coverage_demo.dart` | ✅ |
+| 06 | Golden Test — matchesGoldenFile, --update-goldens, golden_toolkit | `lib/phase7/06_golden_test/golden_test_demo.dart` | ✅ |
+
+### Test Pyramid
+
+```
+    ▲  Integration  — few, slow, high confidence (full app on real device)
+   ■■■ Widget       — moderate, medium speed (component + state)
+  ●●●●● Unit        — many, fast, isolated (function / class)
+```
+
+### Quick Reference
+
+| Command | What it does |
+|---|---|
+| `flutter test` | Run all tests |
+| `flutter test test/phase7/` | Run a specific folder |
+| `flutter test --coverage` | Run with coverage → `coverage/lcov.info` |
+| `flutter test --name "login"` | Filter by test name |
+| `flutter test --update-goldens` | Regenerate golden PNG files |
+
+---
+
+## 🟠 Phase 8 — Deployment & DevOps
+
+> Folder: `lib/phase8/`
+> Status: ✅ Done
+
+### How to Run
+
+```bash
+# Demo app (concepts + interactive examples)
+flutter run -t lib/phase8/main_phase8.dart
+
+# Or run a specific topic
+flutter run -t lib/phase8/01_build_flavors/build_flavors_demo.dart
+flutter run -t lib/phase8/02_app_signing/app_signing_demo.dart
+flutter run -t lib/phase8/03_ci_cd/ci_cd_demo.dart
+flutter run -t lib/phase8/04_play_store/play_store_demo.dart
+flutter run -t lib/phase8/05_crashlytics_analytics/crashlytics_analytics_demo.dart
+flutter run -t lib/phase8/06_code_obfuscation/code_obfuscation_demo.dart
+```
+
+### Topics Covered
+
+| No | Topic | File | Status |
+|---|---|---|---|
+| 01 | Build Flavors — --dart-define-from-file, AppConfig, productFlavors | `lib/phase8/01_build_flavors/build_flavors_demo.dart` | ✅ |
+| 02 | App Signing — Android keystore, key.properties, CI signing, Play App Signing | `lib/phase8/02_app_signing/app_signing_demo.dart` | ✅ |
+| 03 | CI/CD — GitHub Actions: analyze → test → build AAB → distribute | `lib/phase8/03_ci_cd/ci_cd_demo.dart` | ✅ |
+| 04 | Play Store — AAB, versioning, release tracks, staged rollout, checklist | `lib/phase8/04_play_store/play_store_demo.dart` | ✅ |
+| 05 | Crashlytics & Analytics — FlutterError.onError, recordError, screen tracking | `lib/phase8/05_crashlytics_analytics/crashlytics_analytics_demo.dart` | ✅ |
+| 06 | Code Obfuscation — --obfuscate, --split-debug-info, ProGuard, flutter symbolize | `lib/phase8/06_code_obfuscation/code_obfuscation_demo.dart` | ✅ |
+
+### Key Build Commands
+
+| Command | Output |
+|---|---|
+| `flutter build appbundle --release` | `.aab` for Play Store |
+| `flutter build apk --release --split-per-abi` | `.apk` per architecture |
+| `flutter build ipa --release` | `.ipa` for App Store |
+| `flutter build appbundle --dart-define-from-file=config/prod.json` | Production build with env config |
+| `flutter build appbundle --obfuscate --split-debug-info=build/symbols` | Obfuscated build |
 
 **🏆 Milestone 3:** Production-ready — advanced + tested + published
