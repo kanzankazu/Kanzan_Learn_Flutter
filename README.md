@@ -29,12 +29,15 @@ cd Kanzan_Learn_Flutter
 # 2. Install dependencies
 flutter pub get
 
-# 3. Run the phase you want to learn
-flutter run -t lib/phase2/main_phase2.dart   # Phase 2 menu
-flutter run -t lib/phase1/main_phase1.dart   # Phase 1 menu
-dart run lib/phase0/main_phase0.dart          # Phase 0 (Dart CLI)
+# 3. Open the Hub — semua phase bisa diakses dari sini
+flutter run          # buka lib/main.dart (Hub utama, semua phase tampil sebagai menu)
 
-# 4. Or run a specific topic directly
+# 4. Atau jalankan phase tertentu langsung
+flutter run -t lib/phase2/main_phase2.dart   # Phase 2 menu
+dart run lib/phase0/main_phase0.dart         # Phase 0 (Dart CLI)
+dart run lib/phase1/main_phase1.dart         # Phase 1 (Dart CLI)
+
+# 5. Atau langsung ke topik spesifik
 flutter run -t lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart
 ```
 
@@ -55,55 +58,53 @@ flutter run -t lib/phase2/01_stateless_stateful/stateless_stateful_demo.dart
 
 ## 📁 Folder Structure
 
-All phases live in `lib/` — no branch switching needed:
+All phases live in `lib/` — no branch switching needed.
+Run `flutter run` (tanpa `-t`) untuk buka **Hub Screen** yang menampilkan semua phase sekaligus.
 
 ```
 lib/
+├── main.dart        ← 🏠 Hub utama — daftar semua phase, tap untuk masuk
+│
 ├── phase0/          ← Dart CLI: variables, OOP, collections, error handling
 │   ├── 01_variables/
 │   ├── ...
 │   ├── mini_projects/
-│   └── main_phase0.dart    ← entry point Phase 0
+│   └── main_phase0.dart    ← entry point (dart run)
 │
 ├── phase1/          ← Dart: null safety, async/await, Future, Stream, generics
 │   ├── 01_null_safety/
 │   ├── ...
 │   ├── mini_projects/
-│   └── main_phase1.dart    ← entry point Phase 1
+│   └── main_phase1.dart    ← entry point (dart run)
 │
 ├── phase2/          ← Flutter UI fundamentals
 │   ├── 01_stateless_stateful/
-│   ├── 02_layout_widgets/
-│   ├── 03_container_decoration/
-│   ├── 04_scrollable/
-│   ├── 05_input_widgets/
-│   ├── 06_buttons_scaffold/
-│   ├── 07_image_icon_dialog_snackbar/
-│   ├── 08_custom_widget/
-│   ├── 09_theming/
-│   ├── 10_responsive_layout/
-│   ├── 11_animation/
+│   ├── ...
 │   ├── mini_projects/
-│   │   ├── profile_card/
-│   │   ├── calculator/
-│   │   └── recipe_app/
-│   └── main_phase2.dart    ← entry point Phase 2
+│   └── main_phase2.dart    ← entry point (flutter run -t)
 │
 ├── phase3/          ← State management (Riverpod) & navigation (GoRouter)
-│   ├── 01_go_router_basics/
-│   ├── 02_passing_data/
-│   ├── 03_bottom_nav/
-│   ├── 04_deep_linking/
-│   ├── 05_riverpod/
-│   ├── 06_local_vs_global/
-│   ├── mini_projects/
-│   │   ├── todo_app/
-│   │   └── shopping_cart/
-│   └── main_phase3.dart    ← entry point Phase 3
-│
-├── phase4/          ← (Coming soon) Networking & data
-├── phase5/          ← (Coming soon) Clean architecture
-└── main.dart        ← Default Flutter entry point
+│   └── main_phase3.dart
+├── phase4/          ← Networking & data (Dio, Hive, pagination)
+│   └── main_phase4.dart
+├── phase5/          ← Clean architecture, SOLID, DI
+│   └── main_phase5.dart
+├── phase6/          ← Advanced Flutter (CustomPainter, Slivers, Animation)
+│   └── main_phase6.dart
+├── phase7/          ← Testing (unit, widget, integration, golden)
+│   └── main_phase7.dart
+├── phase8/          ← Deployment & DevOps (flavors, CI/CD, Play Store)
+│   └── main_phase8.dart
+├── phase9/          ← Portfolio & Job Ready
+│   └── main_phase9.dart
+└── phase10/
+    ├── 10_1_web_desktop/   ← Track 1: Web & Desktop
+    ├── 10_2_advanced_state/ ← Track 2: Advanced State
+    ├── 10_3_native_interop/ ← Track 3: Native Interop
+    ├── 10_4_performance/    ← Track 4: Performance
+    ├── 10_5_super_app/      ← Track 5: Super App
+    ├── 10_6_backend/        ← Track 6: Backend Integration
+    └── 10_7_ai_ml/          ← Track 7: AI/ML Mobile
 ```
 
 ---
