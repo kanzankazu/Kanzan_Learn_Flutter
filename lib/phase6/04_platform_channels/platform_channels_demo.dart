@@ -153,9 +153,12 @@ class _PlatformChannelsDemoState extends State<PlatformChannelsDemo> {
   }
 
   // Simple pseudo-random step increment (1–10)
+  // Menggunakan konstanta yang aman untuk JavaScript/web (max safe integer ~2^53).
+  // Algoritma LCG disederhanakan agar kompatibel dengan semua platform.
   int _step = 0;
   int _randomStep() {
-    _step = (_step * 6364136223846793005 + 1442695040888963407) & 0x7FFFFFFF;
+    // LCG parameters yang aman untuk JS (tidak melebihi 2^31 - 1)
+    _step = (_step * 1664525 + 1013904223) & 0x7FFFFFFF;
     return (_step % 10) + 1;
   }
 
